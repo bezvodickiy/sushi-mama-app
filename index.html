@@ -102,11 +102,29 @@
         }
 
         tg.onEvent('mainButtonClicked', function() {
-            tg.sendData(JSON.stringify(Object.values(cart)));
-            cart = {};
-            setTimeout(() => { tg.close(); }, 300);
+            // Візуальний відгук
+            tg.MainButton.showProgress();
+            
+            const data = JSON.stringify(Object.values(cart));
+            
+            // Використовуємо стандартний метод, але з невеликою затримкою для Desktop
+            try {
+                tg.sendData(data);
+                
+                // Очищуємо кошик локально
+                cart = {};
+                render(); 
+                
+                // Закриваємо вікно не миттєво, а через 200мс
+                setTimeout(() => {
+                    tg.MainButton.hideProgress();
+                    tg.close();
+                }, 200);
+            } catch (e) {
+                console.error("Помилка відправки:", e);
+                tg.close();
+            }
         });
-
         function filterMenu(cat, el) {
             currentCategory = cat; // Оновлюємо поточну категорію
             document.querySelectorAll('.category-item').forEach(b => b.classList.remove('active'));
