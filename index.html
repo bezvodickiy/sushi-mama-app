@@ -7,153 +7,40 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Raleway', sans-serif; 
-            background-color: #FCF9F1; 
-            color: #4A4941; 
-            margin: 0; 
-            padding: 0; 
-        }
-
+        body { font-family: 'Raleway', sans-serif; background-color: #FCF9F1; color: #4A4941; margin: 0; padding: 0; }
         .categories { 
-            display: flex; 
-            overflow-x: auto; 
-            width: 100%; 
-            background: #FCF9F1; 
-            padding: 15px 5px; 
-            position: sticky; 
-            top: 0; 
-            z-index: 100; 
-            border-bottom: 1px solid #E4E0D5;
-            scrollbar-width: none;
+            display: flex; overflow-x: auto; width: 100%; background: #FCF9F1; padding: 15px 5px; 
+            position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #E4E0D5; scrollbar-width: none;
         }
         .categories::-webkit-scrollbar { display: none; }
-        
         .category-item { 
-            padding: 8px 20px; 
-            margin: 0 8px; 
-            background: transparent; 
-            white-space: nowrap; 
-            font-size: 13px; 
-            font-weight: 600;
-            color: #4A4941;
-            cursor: pointer; 
-            border-bottom: 2px solid transparent;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            padding: 8px 20px; margin: 0 8px; background: transparent; white-space: nowrap; 
+            font-size: 13px; font-weight: 600; color: #4A4941; cursor: pointer; 
+            border-bottom: 2px solid transparent; text-transform: uppercase; letter-spacing: 1px;
         }
-        .category-item.active { 
-            color: #2B463C;
-            border-bottom: 2px solid #2B463C;
-        }
-
-        .container { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 15px; 
-            padding-bottom: 120px; 
-        }
-        
+        .category-item.active { color: #2B463C; border-bottom: 2px solid #2B463C; }
+        .container { display: flex; flex-direction: column; align-items: center; padding: 15px; padding-bottom: 120px; }
         .product-card { 
-            width: 100%; 
-            max-width: 400px; 
-            background: #FFFFFF; 
-            border-radius: 0px; 
-            margin-bottom: 30px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 15px rgba(43, 70, 60, 0.05);
-            border: 1px solid #E4E0D5;
+            width: 100%; max-width: 400px; background: #FFFFFF; border-radius: 0px; 
+            margin-bottom: 30px; overflow: hidden; box-shadow: 0 4px 15px rgba(43, 70, 60, 0.05); border: 1px solid #E4E0D5;
         }
-        
-        .product-image { 
-            width: 100%; 
-            height: 280px; 
-            object-fit: cover; 
-        }
-        
+        .product-image { width: 100%; height: 280px; object-fit: cover; }
         .product-info { padding: 20px; }
-        
-        .product-title { 
-            font-family: 'Playfair Display', serif;
-            font-size: 20px; 
-            font-weight: 700; 
-            margin-bottom: 10px; 
-            color: #2B463C;
-            text-transform: uppercase;
-        }
-        
-        .product-desc { 
-            font-size: 13px; 
-            color: #7A7970; 
-            margin-bottom: 20px; 
-            line-height: 1.5;
-            min-height: 40px; 
-        }
-        
-        .product-footer { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        .price-tag {
-            background-color: #E8F0E5;
-            padding: 6px 12px;
-            border-radius: 4px;
-            border: 1px solid #D1DED0;
-        }
-
-        .price { 
-            font-size: 18px; 
-            color: #2B463C; 
-            font-weight: 700; 
-        }
-        
-        .counter-container { 
-            display: flex; 
-            align-items: center; 
-            border: 1px solid #2B463C;
-            border-radius: 4px;
-        }
-        
-        .btn-count { 
-            background: transparent; 
-            border: none; 
-            color: #2B463C; 
-            width: 32px;
-            height: 32px;
-            font-weight: bold; 
-            cursor: pointer; 
-            font-size: 18px; 
-        }
-        
-        .count-value { 
-            padding: 0 10px; 
-            font-weight: 700; 
-            font-size: 15px; 
-            color: #2B463C;
-        }
-        
-        .add-initial { 
-            background: #2B463C; 
-            color: #FFFFFF; 
-            border: none; 
-            padding: 10px 20px; 
-            border-radius: 4px; 
-            font-weight: 600; 
-            cursor: pointer; 
-            font-size: 13px;
-            text-transform: uppercase;
-        }
+        .product-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #2B463C; text-transform: uppercase; }
+        .product-desc { font-size: 13px; color: #7A7970; margin-bottom: 20px; line-height: 1.5; min-height: 40px; }
+        .product-footer { display: flex; justify-content: space-between; align-items: center; }
+        .price-tag { background-color: #E8F0E5; padding: 6px 12px; border-radius: 4px; border: 1px solid #D1DED0; }
+        .price { font-size: 18px; color: #2B463C; font-weight: 700; }
+        .counter-container { display: flex; align-items: center; border: 1px solid #2B463C; border-radius: 4px; }
+        .btn-count { background: transparent; border: none; color: #2B463C; width: 32px; height: 32px; font-weight: bold; cursor: pointer; font-size: 18px; }
+        .count-value { padding: 0 10px; font-weight: 700; font-size: 15px; color: #2B463C; }
+        .add-initial { background: #2B463C; color: #FFFFFF; border: none; padding: 10px 20px; border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 13px; text-transform: uppercase; }
     </style>
 </head>
 <body>
-
     <div class="categories" id="category-bar">
         <div class="category-item active" onclick="filterMenu('Всі', this)">Всі</div>
     </div>
-
     <div class="container" id="product-container"></div>
 
     <script>
@@ -166,13 +53,8 @@
         tg.setHeaderColor('#FCF9F1');
         tg.setBackgroundColor('#FCF9F1');
 
-        tg.MainButton.setParams({
-            text: "ПЕРЕГЛЯНУТИ ЗАМОВЛЕННЯ",
-            color: "#2B463C",
-            text_color: "#FFFFFF"
-        });
+        tg.MainButton.setParams({ text: "ПЕРЕГЛЯНУТИ ЗАМОВЛЕННЯ", color: "#2B463C", text_color: "#FFFFFF" });
 
-        // Завантаження меню
         fetch('menu_data.json').then(res => res.json()).then(data => {
             allProducts = data;
             createCategoryButtons();
@@ -199,7 +81,7 @@
                 const card = document.createElement('div');
                 card.className = 'product-card';
                 card.innerHTML = `
-                    <img src="${item.image}" class="product-image" onerror="this.src='https://via.placeholder.com/400x300?text=Sushi+Mama'">
+                    <img src="${item.image}" class="product-image">
                     <div class="product-info">
                         <div class="product-title">${item.name}</div>
                         <div class="product-desc">${item.description}</div>
@@ -243,15 +125,12 @@
             }
         }
 
-        // ВІДПРАВКА ДАНИХ ТА ЗАКРИТТЯ
         tg.onEvent('mainButtonClicked', function() {
-            const data = JSON.stringify(Object.values(cart));
-            tg.sendData(data); 
-            
-            // Закриваємо вікно, щоб скинути сесію Web App
-            setTimeout(() => {
-                tg.close();
-            }, 100);
+            tg.sendData(JSON.stringify(Object.values(cart)));
+            cart = {}; // ОЧИЩЕННЯ
+            renderProducts(allProducts);
+            tg.MainButton.hide();
+            setTimeout(() => { tg.close(); }, 200);
         });
 
         function filterMenu(category, element) {
