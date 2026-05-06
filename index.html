@@ -28,9 +28,7 @@
     </style>
 </head>
 <body>
-    <div class="categories" id="category-bar">
-        <div class="category-item active" onclick="filterMenu('Всі', this)">Всі</div>
-    </div>
+    <div class="categories" id="category-bar"><div class="category-item active" onclick="filterMenu('Всі', this)">Всі</div></div>
     <div class="container" id="product-container"></div>
 
     <script>
@@ -38,7 +36,6 @@
         let cart = {};
         const tg = window.Telegram.WebApp;
 
-        // ПОВНЕ СКИНУТТЯ ПРИ ЗАПУСКУ
         window.onload = function() {
             cart = {};
             tg.ready();
@@ -47,8 +44,6 @@
             tg.setBackgroundColor('#FCF9F1');
             tg.MainButton.hide();
         };
-
-        tg.MainButton.setParams({ text: "ОФОРМИТИ ЗАМОВЛЕННЯ", color: "#2B463C", text_color: "#FFFFFF" });
 
         fetch('menu_data.json').then(res => res.json()).then(data => {
             allProducts = data;
@@ -74,38 +69,20 @@
                 const count = cart[item.name] ? cart[item.name].count : 0;
                 const card = document.createElement('div');
                 card.className = 'product-card';
-                card.innerHTML = `
-                    <img src="${item.image}" class="product-image">
-                    <div class="product-info">
-                        <div class="product-title">${item.name}</div>
-                        <div class="product-desc">${item.description}</div>
-                        <div class="product-footer">
-                            <div class="price-tag"><span class="price">${item.price} грн</span></div>
-                            <div id="controls-${item.name.replace(/\s+/g, '')}">
-                                ${count > 0 ? renderCounter(item.name, item.price, count) : `<button class="add-initial" onclick="changeCount('${item.name}', ${item.price}, 1)">Додати +</button>`}
-                            </div>
-                        </div>
-                    </div>`;
+                card.innerHTML = `<img src="${item.image}" class="product-image"><div class="product-info"><div class="product-title">${item.name}</div><div class="product-desc">${item.description}</div><div class="product-footer"><div class="price-tag"><span class="price">${item.price} грн</span></div><div id="controls-${item.name.replace(/\s+/g, '')}">${count > 0 ? renderCounter(item.name, item.price, count) : `<button class="add-initial" onclick="changeCount('${item.name}', ${item.price}, 1)">Додати +</button>`}</div></div></div>`;
                 container.appendChild(card);
             });
         }
 
         function renderCounter(name, price, count) {
-            return `<div class="counter-container">
-                <button class="btn-count" onclick="changeCount('${name}', ${price}, -1)">-</button>
-                <span class="count-value">${count}</span>
-                <button class="btn-count" onclick="changeCount('${name}', ${price}, 1)">+</button>
-            </div>`;
+            return `<div class="counter-container"><button class="btn-count" onclick="changeCount('${name}', ${price}, -1)">-</button><span class="count-value">${count}</span><button class="btn-count" onclick="changeCount('${name}', ${price}, 1)">+</button></div>`;
         }
 
         function changeCount(name, price, delta) {
             if (!cart[name]) cart[name] = { name, price, count: 0 };
             cart[name].count += delta;
             if (cart[name].count <= 0) delete cart[name];
-
-            const controls = document.getElementById(`controls-${name.replace(/\s+/g, '')}`);
-            const newCount = cart[name] ? cart[name].count : 0;
-            controls.innerHTML = newCount > 0 ? renderCounter(name, price, newCount) : `<button class="add-initial" onclick="changeCount('${name}', ${price}, 1)">Додати +</button>`;
+            renderProducts(allProducts); // Оновлюємо візуал
             updateMainButton();
         }
 
@@ -114,15 +91,14 @@
             if (cartArray.length === 0) tg.MainButton.hide();
             else {
                 const total = cartArray.reduce((sum, item) => sum + (item.price * item.count), 0);
-                tg.MainButton.setText(`ЗАМОВИТИ — ${total} грн`);
+                tg.MainButton.setText(`ОФОРМИТИ ЗАМОВЛЕННЯ — ${total} грн`);
                 tg.MainButton.show();
             }
         }
 
         tg.onEvent('mainButtonClicked', function() {
             tg.sendData(JSON.stringify(Object.values(cart)));
-            cart = {};
-            tg.close(); // МИТТЄВЕ ЗАКРИТТЯ
+            tg.close();
         });
 
         function filterMenu(category, element) {
