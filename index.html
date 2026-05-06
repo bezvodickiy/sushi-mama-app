@@ -26,17 +26,19 @@
     </style>
 </head>
 <body>
-    <div class="categories" id="cat-bar"><div class="category-item active" onclick="filterMenu('Всі', this)">Всі</div></div>
+    <div class="categories" id="cat-bar"><div class="category-item active" id="btn-all" onclick="filterMenu('Всі', this)">Всі</div></div>
     <div class="container" id="main-cont"></div>
 
     <script>
-        let allItems = []; let cart = {}; const tg = window.Telegram.WebApp;
+        let allItems = []; 
+        let cart = {}; 
+        let currentCategory = 'Всі'; // Запам'ятовуємо категорію
+        const tg = window.Telegram.WebApp;
         
         window.onload = function() {
             tg.ready(); tg.expand();
             tg.MainButton.setParams({ color: "#2B463C", text_color: "#FFFFFF" });
             
-            // Завантажуємо JSON
             fetch('menu_data.json?v=' + Date.now())
                 .then(r => r.json())
                 .then(data => {
@@ -47,13 +49,20 @@
                         d.innerText = c; d.onclick = (e) => filterMenu(c, e.target);
                         document.getElementById('cat-bar').appendChild(d);
                     });
-                    render(allItems);
+                    render();
                 });
         };
 
-        function render(items) {
-            const c = document.getElementById('main-cont'); c.innerHTML = '';
-            items.forEach(i => {
+        function render() {
+            const c = document.getElementById('main-cont'); 
+            c.innerHTML = '';
+            
+            // Фільтруємо список згідно з обраною категорією
+            const itemsToRender = currentCategory === 'Всі' 
+                ? allItems 
+                : allItems.filter(i => i.category === currentCategory);
+
+            itemsToRender.forEach(i => {
                 const count = cart[i.name] ? cart[i.name].count : 0;
                 const card = document.createElement('div'); card.className = 'product-card';
                 card.innerHTML = `
@@ -78,7 +87,7 @@
             if(!cart[n]) cart[n] = {name:n, price:p, count:0};
             cart[n].count += d;
             if(cart[n].count <= 0) delete cart[n];
-            render(allItems);
+            render(); // Тепер рендер знає, яку категорію показувати
             updateBtn();
         }
 
@@ -87,29 +96,22 @@
             if(vals.length === 0) tg.MainButton.hide();
             else {
                 const sum = vals.reduce((a, b) => a + (b.price * b.count), 0);
-                tg.MainButton.setText(`ОФОРМИТИ ЗАМОВЛЕННЯ — ${sum} грн`);
+                tg.MainButton.setText(`ЗАМОВИТИ — ${sum} грн`);
                 tg.MainButton.show();
             }
         }
 
         tg.onEvent('mainButtonClicked', function() {
-            tg.MainButton.showProgress();
-            const data = JSON.stringify(Object.values(cart));
-            
-            // ВІДПРАВКА
-            tg.sendData(data);
-            
-            // ОЧИЩЕННЯ ПЕРЕД ЗАКРИТТЯМ
+            tg.sendData(JSON.stringify(Object.values(cart)));
             cart = {};
-            setTimeout(() => {
-                tg.close();
-            }, 300);
+            setTimeout(() => { tg.close(); }, 300);
         });
 
         function filterMenu(cat, el) {
+            currentCategory = cat; // Оновлюємо поточну категорію
             document.querySelectorAll('.category-item').forEach(b => b.classList.remove('active'));
             el.classList.add('active');
-            render(cat === 'Всі' ? allItems : allItems.filter(i => i.category === cat));
+            render();
         }
     </script>
 </body>
