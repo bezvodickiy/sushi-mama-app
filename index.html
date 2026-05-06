@@ -6,47 +6,118 @@
     <title>Sushi Mama Menu</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        body { font-family: sans-serif; background: #1a1a1a; color: white; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        .product-card { width: 100%; max-width: 350px; background: #2c2c2c; border-radius: 15px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        .product-image { width: 100%; height: 250px; object-fit: cover; }
+        body { font-family: 'Segoe UI', sans-serif; background: #1a1a1a; color: white; margin: 0; padding: 0; }
+        
+        /* Панель категорій */
+        .categories { 
+            display: flex; overflow-x: auto; width: 100%; background: #252525; 
+            padding: 12px 5px; position: sticky; top: 0; z-index: 100; 
+            border-bottom: 1px solid #333; scrollbar-width: none;
+        }
+        .categories::-webkit-scrollbar { display: none; }
+        
+        .category-item { 
+            padding: 8px 20px; margin: 0 5px; background: #333; border-radius: 20px; 
+            white-space: nowrap; font-size: 14px; cursor: pointer; transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .category-item.active { background: #ffcc00; color: black; font-weight: bold; border-color: #ffcc00; }
+
+        .container { display: flex; flex-direction: column; align-items: center; padding: 15px; }
+        
+        /* Картки товарів */
+        .product-card { width: 100%; max-width: 380px; background: #2c2c2c; border-radius: 18px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.4); }
+        .product-image { width: 100%; height: 260px; object-fit: cover; }
         .product-info { padding: 15px; }
-        .product-title { font-size: 20px; font-weight: bold; margin-bottom: 5px; }
-        .product-desc { font-size: 14px; color: #aaa; margin-bottom: 10px; }
+        .product-title { font-size: 20px; font-weight: bold; margin-bottom: 6px; }
+        .product-desc { font-size: 13px; color: #aaa; margin-bottom: 15px; min-height: 32px; }
         .product-footer { display: flex; justify-content: space-between; align-items: center; }
-        .price { font-size: 18px; color: #ffcc00; font-weight: bold; }
-        .add-btn { background: #ffcc00; border: none; padding: 8px 15px; border-radius: 8px; font-weight: bold; }
+        .price { font-size: 20px; color: #ffcc00; font-weight: bold; }
+        .add-btn { background: #ffcc00; border: none; padding: 10px 22px; border-radius: 12px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
-    <div id="container" style="width: 100%; max-width: 400px;"></div>
+
+    <div class="categories" id="category-bar">
+        <div class="category-item active" onclick="filterMenu('Всі', this)">Всі</div>
+    </div>
+
+    <div class="container" id="product-container">
+        <p>Завантаження меню...</p>
+    </div>
 
     <script>
-        const container = document.getElementById('container');
+        let allProducts = [];
 
-        // Завантажуємо дані з твого JSON файлу
+        // 1. Завантажуємо дані
         fetch('menu_data.json')
-            .then(response => response.json())
+            .then(res => res.json())
             .then(data => {
-                data.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'product-card';
-                    card.innerHTML = `
-                        <img src="${item.image}" class="product-image">
-                        <div class="product-info">
-                            <div class="product-title">${item.name}</div>
-                            <div class="product-desc">${item.description}</div>
-                            <div class="product-footer">
-                                <div class="price">${item.price} грн</div>
-                                <button class="add-btn">Додати +</button>
-                            </div>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
+                allProducts = data;
+                createCategoryButtons(); // Автоматично створюємо кнопки
+                renderProducts(allProducts);
+            })
+            .catch(err => {
+                document.getElementById('product-container').innerHTML = "<p>Помилка завантаження даних</p>";
             });
 
-        window.Telegram.WebApp.ready();
-        window.Telegram.WebApp.expand();
+        // 2. Функція створення кнопок на основі категорій з JSON
+        function createCategoryButtons() {
+            const bar = document.getElementById('category-bar');
+            // Отримуємо список унікальних категорій
+            const categories = [...new Set(allProducts.map(p => p.category))];
+            
+            categories.forEach(cat => {
+                const btn = document.createElement('div');
+                btn.className = 'category-item';
+                btn.innerText = cat;
+                btn.onclick = (e) => filterMenu(cat, e.target);
+                bar.appendChild(btn);
+            });
+        }
+
+        // 3. Функція відображення товарів
+        function renderProducts(products) {
+            const container = document.getElementById('product-container');
+            container.innerHTML = '';
+            
+            products.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${item.image}" class="product-image" onerror="this.src='https://via.placeholder.com/400x300?text=No+Photo'">
+                    <div class="product-info">
+                        <div class="product-title">${item.name}</div>
+                        <div class="product-desc">${item.description}</div>
+                        <div class="product-footer">
+                            <div class="price">${item.price} грн</div>
+                            <button class="add-btn">Додати +</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // 4. Логіка фільтрації
+        function filterMenu(category, element) {
+            // Оновлюємо активну кнопку
+            document.querySelectorAll('.category-item').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            if (category === 'Всі') {
+                renderProducts(allProducts);
+            } else {
+                const filtered = allProducts.filter(p => p.category === category);
+                renderProducts(filtered);
+            }
+            // Скролимо вгору при зміні категорії
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();
     </script>
 </body>
 </html>
