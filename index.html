@@ -81,12 +81,29 @@
         }
 
         tg.onEvent('mainButtonClicked', function() {
-            tg.MainButton.showProgress();
-            tg.sendData(JSON.stringify(Object.values(cart)));
-            cart = {};
-            setTimeout(() => { tg.close(); }, 400); // Збільшено для Desktop
-        });
+            const cartValues = Object.values(cart);
+            if (cartValues.length === 0) return;
 
+            tg.MainButton.showProgress();
+            const resultData = JSON.stringify(cartValues);
+
+            // 1. Спочатку пробуємо відправити дані
+            tg.sendData(resultData);
+
+            // 2. Очищуємо кошик
+            cart = {};
+            
+            // 3. ХИТРІСТЬ: Перед закриттям ми кажемо Телеграму, що сесія активна
+            if (tg.requestWriteAccess) {
+                tg.requestWriteAccess();
+            }
+
+            // 4. Збільшуємо паузу до 500мс, щоб Desktop встиг "проковтнути" дані
+            setTimeout(() => {
+                tg.MainButton.hideProgress();
+                tg.close();
+            }, 500);
+        });
         function filterMenu(cat, el) {
             currentCategory = cat;
             document.querySelectorAll('.category-item').forEach(b => b.classList.remove('active'));
