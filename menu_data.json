@@ -1,34 +1,6 @@
 [
     {
         "category": "Запечені роли",
-        "name": "Запечений з лососем",
-        "description": "Норі, рис, сир, краб мікс, огірок, лосось",
-        "price": 230,
-        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/zapech_rolls/zapecheni_losos.jpg"
-    },
-    {
-        "category": "Запечені роли",
-        "name": "Запечений з креветкою",
-        "description": "Норі, рис, сир, краб мікс, огірок, креветка, ікра",
-        "price": 280,
-        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/zapech_rolls/zapecheni_krevet.jpg"
-    },
-    {
-        "category": "Запечені роли",
-        "name": "Запечений з вугрем",
-        "description": "Норі, рис, сир, краб мікс, огірок, вугор, ікра",
-        "price": 280,
-        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/zapech_rolls/zapecheni_vugor.jpg"
-    },
-    {
-        "category": "Запечені роли",
-        "name": "Запечений Спайсі",
-        "description": "Норі, рис, сир, краб мікс, огірок, авокадо, лосось, соус спайсі, ікра",
-        "price": 270,
-        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/zapech_rolls/zapecheni_spaysi.jpg"
-    },
-    {
-        "category": "Запечені роли",
         "name": "Темпура з лососем",
         "description": "Норі, рис, сир, огірок, лосось, кляр",
         "price": 235,
@@ -56,6 +28,34 @@
         "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/zapech_rolls/zapecheni_julien.jpg"
     },
     {
+        "category": "Запечені роли",
+        "name": "Запечений з лососем",
+        "description": "Норі, рис, сир, краб мікс, огірок, лосось",
+        "price": 230,
+        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/zapech_rolls/zapecheni_losos.jpg"
+    },
+    {
+        "category": "Запечені роли",
+        "name": "Запечений з креветкою",
+        "description": "Норі, рис, сир, краб мікс, огірок, креветка, ікра",
+        "price": 280,
+        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/zapech_rolls/zapecheni_krevet.jpg"
+    },
+    {
+        "category": "Запечені роли",
+        "name": "Запечений з вугрем",
+        "description": "Норі, рис, сир, краб мікс, огірок, вугор, ікра",
+        "price": 280,
+        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/zapech_rolls/zapecheni_vugor.jpg"
+    },
+    {
+        "category": "Запечені роли",
+        "name": "Запечений Спайсі",
+        "description": "Норі, рис, сир, краб мікс, огірок, авокадо, лосось, соус спайсі, ікра",
+        "price": 270,
+        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/zapech_rolls/zapecheni_spaysi.jpg"
+    },
+    {
         "category": "Роли",
         "name": "Філадельфія з лососем",
         "description": "Норі, рис, сир, огірок, лосось",
@@ -74,7 +74,7 @@
         "name": "Філадельфія з креветкою",
         "description": "Норі, рис, сир, огірок, лосось, креветка",
         "price": 295,
-        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/rolls/fila_krev.jpg"
+        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/rolls/fila_krerv.jpg"
     },
     {
         "category": "Роли",
