@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sushi Mama Menu</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Стиль для стрічки категорій */
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            width: 100%;
+            padding: 15px 0;
+            background: #252525;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .category-item {
+            padding: 8px 20px;
+            margin: 0 10px;
+            background: #444;
+            border-radius: 20px;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+
+        /* Стиль для великої картки страви */
+        .product-card {
+            width: 90%;
+            max-width: 400px;
+            background: #2c2c2c;
+            border-radius: 15px;
+            margin: 20px 0;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            scroll-snap-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .add-btn {
+            background: #ffcc00;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="categories" id="categories">
+        <div class="category-item">Запечені роли</div>
+        <div class="category-item">Роли</div>
+        <div class="category-item">Сети</div>
+        <div class="category-item">Фаст-фуд</div>
+    </div>
+
+    <div id="product-list" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+        <div class="product-card">
+            <img src="https://via.placeholder.com/400x300" class="product-image">
+            <div class="product-info">
+                <div class="product-title">Завантаження...</div>
+                <div class="product-desc">Тут з'явиться опис страви з твоєї бази</div>
+                <div class="product-footer">
+                    <div class="product-price">0 грн</div>
+                    <button class="add-btn">Додати +</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // Розгортаємо на весь екран
+    </script>
+</body>
+</html>
