@@ -4,48 +4,111 @@
     "name": "Запечений з лососем",
     "description": "Норі, рис, сир, краб мікс, огірок, лосось. 310 г",
     "price": 230,
-    "image": "https://via.placeholder.com/400x300?text=Baked+Salmon"
+    "image": "1.jpg"
   },
   {
     "category": "Запечені роли",
     "name": "Запечений з креветкою",
     "description": "Норі, рис, сир, краб мікс, огірок, креветка, ікра. 310 г",
     "price": 280,
-    "image": "https://via.placeholder.com/400x300?text=Baked+Shrimp"
+    "image": "2.jpg"
   },
   {
     "category": "Запечені роли",
     "name": "Запечений з вугрем",
     "description": "Норі, рис, сир, краб мікс, огірок, вугор, ікра. 310 г",
     "price": 280,
-    "image": "https://via.placeholder.com/400x300?text=Baked+Eel"
+    "image": "3.jpg"
   },
   {
     "category": "Запечені роли",
     "name": "Запечений Спайсі",
     "description": "Норі, рис, сир, краб мікс, огірок, авокадо, лосось, соус спайсі, ікра. 310 г",
     "price": 270,
-    "image": "https://via.placeholder.com/400x300?text=Baked+Spicy"
+    "image": "4.jpg"
   },
   {
     "category": "Темпура",
     "name": "Темпура з лососем",
     "description": "Норі, рис, сир, огірок, лосось, кляр. 270 г",
     "price": 235,
-    "image": "https://via.placeholder.com/400x300?text=Tempura+Salmon"
+    "image": "5.jpg"
   },
   {
     "category": "Темпура",
     "name": "Темпура з креветкою",
     "description": "Норі, рис, сир, огірок, креветка, кляр. 270 г",
     "price": 285,
-    "image": "https://via.placeholder.com/400x300?text=Tempura+Shrimp"
+    "image": "6.jpg"
   },
   {
     "category": "Новинки",
     "name": "Жульєн",
     "description": "Норі, рис, крем-сир, огірок, смажені гриби та м'ясо, твердий сир. 270 г",
     "price": 255,
-    "image": "https://via.placeholder.com/400x300?text=Julienne+Roll"
+    "image": "7.jpg"
+  },
+  {
+    "category": "Роли",
+    "name": "Філадельфія Класик",
+    "description": "Лосось, сир вершковий, огірок, норі, рис. 300 г",
+    "price": 240,
+    "image": "8.jpg"
+  },
+  {
+    "category": "Роли",
+    "name": "Каліфорнія з крабом",
+    "description": "Краб-мікс, огірок, авокадо, ікра масаго, рис. 280 г",
+    "price": 190,
+    "image": "9.jpg"
+  },
+  {
+    "category": "Роли",
+    "name": "Золотий Дракон",
+    "description": "Вугор, сир вершковий, огірок, соус унагі, кунжут. 290 г",
+    "price": 310,
+    "image": "10.jpg"
+  },
+  {
+    "category": "Роли",
+    "name": "Зелений Дракон",
+    "description": "Лосось, авокадо, сир вершковий, ікра. 290 г",
+    "price": 295,
+    "image": "11.png"
+  },
+  {
+    "category": "Роли",
+    "name": "Макі з лососем",
+    "description": "Рис, норі, свіжий лосось. 120 г",
+    "price": 110,
+    "image": "12.png"
+  },
+  {
+    "category": "Роли",
+    "name": "Макі з огірком",
+    "description": "Рис, норі, свіжий огірок, кунжут. 120 г",
+    "price": 65,
+    "image": "13.png"
+  },
+  {
+    "category": "Сети",
+    "name": "Сет ТОП",
+    "description": "Філадельфія, Каліфорнія, Запечений рол. 900 г",
+    "price": 650,
+    "image": "14.png"
+  },
+  {
+    "category": "Сети",
+    "name": "Сет Темпура",
+    "description": "Три види гарячих ролів. 850 г",
+    "price": 720,
+    "image": "15.PNG"
+  },
+  {
+    "category": "Напої",
+    "name": "Кока-Кола",
+    "description": "0.5 л",
+    "price": 45,
+    "image": "16.PNG"
   }
 ]
