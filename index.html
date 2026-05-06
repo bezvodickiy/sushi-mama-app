@@ -9,16 +9,12 @@
         body { font-family: 'Segoe UI', sans-serif; background: #1a1a1a; color: white; margin: 0; padding: 0; }
         .categories { 
             display: flex; overflow-x: auto; width: 100%; background: #252525; 
-            padding: 12px 5px; position: sticky; top: 0; z-index: 100; 
-            border-bottom: 1px solid #333; scrollbar-width: none;
+            padding: 12px 5px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #333; scrollbar-width: none;
         }
         .categories::-webkit-scrollbar { display: none; }
-        .category-item { 
-            padding: 8px 20px; margin: 0 5px; background: #333; border-radius: 20px; 
-            white-space: nowrap; font-size: 14px; cursor: pointer; transition: 0.3s;
-        }
+        .category-item { padding: 8px 20px; margin: 0 5px; background: #333; border-radius: 20px; white-space: nowrap; font-size: 14px; cursor: pointer; }
         .category-item.active { background: #ffcc00; color: black; font-weight: bold; }
-        .container { display: flex; flex-direction: column; align-items: center; padding: 15px; padding-bottom: 80px; }
+        .container { display: flex; flex-direction: column; align-items: center; padding: 15px; padding-bottom: 100px; }
         .product-card { width: 100%; max-width: 380px; background: #2c2c2c; border-radius: 18px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.4); }
         .product-image { width: 100%; height: 260px; object-fit: cover; }
         .product-info { padding: 15px; }
@@ -26,8 +22,12 @@
         .product-desc { font-size: 13px; color: #aaa; margin-bottom: 15px; min-height: 32px; }
         .product-footer { display: flex; justify-content: space-between; align-items: center; }
         .price { font-size: 20px; color: #ffcc00; font-weight: bold; }
-        .add-btn { background: #ffcc00; border: none; padding: 10px 22px; border-radius: 12px; font-weight: bold; cursor: pointer; }
-        .add-btn.added { background: #4caf50; color: white; }
+        
+        /* Кнопки керування кількістю */
+        .counter-container { display: flex; align-items: center; background: #333; border-radius: 12px; overflow: hidden; }
+        .btn-count { background: #ffcc00; border: none; color: black; padding: 10px 15px; font-weight: bold; cursor: pointer; font-size: 18px; }
+        .count-value { padding: 0 15px; font-weight: bold; font-size: 16px; min-width: 20px; text-align: center; }
+        .add-initial { background: #ffcc00; border: none; padding: 10px 22px; border-radius: 12px; font-weight: bold; cursor: pointer; color: black; }
     </style>
 </head>
 <body>
@@ -40,18 +40,11 @@
 
     <script>
         let allProducts = [];
-        let cart = [];
+        let cart = {}; // Тепер кошик — це об'єкт для швидкого доступу
         const tg = window.Telegram.WebApp;
 
         tg.ready();
         tg.expand();
-
-        // Налаштування головної кнопки Telegram
-        tg.MainButton.setParams({
-            text: "ПЕРЕГЛЯНУТИ ЗАМОВЛЕННЯ",
-            color: "#ffcc00",
-            text_color: "#000000"
-        });
 
         fetch('menu_data.json')
             .then(res => res.json())
@@ -77,7 +70,7 @@
             const container = document.getElementById('product-container');
             container.innerHTML = '';
             products.forEach(item => {
-                const isAdded = cart.some(p => p.name === item.name);
+                const count = cart[item.name] ? cart[item.name].count : 0;
                 const card = document.createElement('div');
                 card.className = 'product-card';
                 card.innerHTML = `
@@ -87,9 +80,9 @@
                         <div class="product-desc">${item.description}</div>
                         <div class="product-footer">
                             <div class="price">${item.price} грн</div>
-                            <button class="add-btn ${isAdded ? 'added' : ''}" onclick="toggleCart('${item.name}', ${item.price}, this)">
-                                ${isAdded ? 'В кошику ✓' : 'Додати +'}
-                            </button>
+                            <div id="controls-${item.name.replace(/\s+/g, '')}">
+                                ${count > 0 ? renderCounter(item.name, item.price, count) : `<button class="add-initial" onclick="changeCount('${item.name}', ${item.price}, 1)">Додати +</button>`}
+                            </div>
                         </div>
                     </div>
                 `;
@@ -97,34 +90,52 @@
             });
         }
 
-        function toggleCart(name, price, btn) {
-            const index = cart.findIndex(p => p.name === name);
-            if (index > -1) {
-                cart.splice(index, 1);
-                btn.innerText = "Додати +";
-                btn.classList.remove('added');
-            } else {
-                cart.push({ name, price });
-                btn.innerText = "В кошику ✓";
-                btn.classList.add('added');
+        function renderCounter(name, price, count) {
+            return `
+                <div class="counter-container">
+                    <button class="btn-count" onclick="changeCount('${name}', ${price}, -1)">-</button>
+                    <span class="count-value">${count}</span>
+                    <button class="btn-count" onclick="changeCount('${name}', ${price}, 1)">+</button>
+                </div>
+            `;
+        }
+
+        function changeCount(name, price, delta) {
+            if (!cart[name]) {
+                cart[name] = { name, price, count: 0 };
             }
+            cart[name].count += delta;
+
+            if (cart[name].count <= 0) {
+                delete cart[name];
+            }
+
+            // Перемальовуємо лише блок керування для цього товару
+            const controls = document.getElementById(`controls-${name.replace(/\s+/g, '')}`);
+            const newCount = cart[name] ? cart[name].count : 0;
+            if (newCount > 0) {
+                controls.innerHTML = renderCounter(name, price, newCount);
+            } else {
+                controls.innerHTML = `<button class="add-initial" onclick="changeCount('${name}', ${price}, 1)">Додати +</button>`;
+            }
+
             updateMainButton();
         }
 
         function updateMainButton() {
-            if (cart.length === 0) {
+            const cartArray = Object.values(cart);
+            if (cartArray.length === 0) {
                 tg.MainButton.hide();
             } else {
-                const total = cart.reduce((sum, item) => sum + item.price, 0);
-                tg.MainButton.setText(`ЗАМОВИТИ (${total} грн)`);
+                const total = cartArray.reduce((sum, item) => sum + (item.price * item.count), 0);
+                const count = cartArray.reduce((sum, item) => sum + item.count, 0);
+                tg.MainButton.setText(`ЗАМОВИТИ ${count} шт. (${total} грн)`);
                 tg.MainButton.show();
             }
         }
 
-        // Відправка замовлення в бот
         tg.onEvent('mainButtonClicked', function() {
-            const data = JSON.stringify(cart);
-            tg.sendData(data); // Це відправляє дані назад у бот
+            tg.sendData(JSON.stringify(Object.values(cart)));
         });
 
         function filterMenu(category, element) {
