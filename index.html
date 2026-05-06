@@ -102,38 +102,22 @@
         }
 
         tg.onEvent('mainButtonClicked', function() {
-            // Перевіряємо, чи є взагалі щось у кошику
             const cartValues = Object.values(cart);
-            if (cartValues.length === 0) {
-                tg.MainButton.hide();
-                return;
-            }
+            if (cartValues.length === 0) return;
 
             tg.MainButton.showProgress();
             
-            // Формуємо дані
-            const resultData = JSON.stringify(cartValues);
+            // Відправляємо дані безпосередньо
+            tg.sendData(JSON.stringify(cartValues));
             
-            // Спроба відправки з обробкою через невеликий "пінок" для Telegram
+            // Очищуємо кошик простою дією
+            cart = {};
+            
+            // Закриваємо вікно через паузу
             setTimeout(() => {
-                try {
-                    // Використовуємо sendData
-                    tg.sendData(resultData);
-                    
-                    // Важливо: обнуляємо кошик і візуал ПЕРЕД закриттям
-                    cart = {};
-                    render();
-                    
-                    // Даємо ще трохи часу на пересилку пакетів даних
-                    setTimeout(() => {
-                        tg.MainButton.hideProgress();
-                        tg.close();
-                    }, 150);
-                } catch (error) {
-                    alert("Помилка відправки: " + error);
-                    tg.MainButton.hideProgress();
-                }
-            }, 100);
+                tg.MainButton.hideProgress();
+                tg.close();
+            }, 200);
         });
         function filterMenu(cat, el) {
             currentCategory = cat; // Оновлюємо поточну категорію
