@@ -162,6 +162,7 @@
         const tg = window.Telegram.WebApp;
 
         tg.ready();
+        tg.expand();
         tg.setHeaderColor('#FCF9F1');
         tg.setBackgroundColor('#FCF9F1');
 
@@ -171,6 +172,7 @@
             text_color: "#FFFFFF"
         });
 
+        // Завантаження меню
         fetch('menu_data.json').then(res => res.json()).then(data => {
             allProducts = data;
             createCategoryButtons();
@@ -197,7 +199,7 @@
                 const card = document.createElement('div');
                 card.className = 'product-card';
                 card.innerHTML = `
-                    <img src="${item.image}" class="product-image">
+                    <img src="${item.image}" class="product-image" onerror="this.src='https://via.placeholder.com/400x300?text=Sushi+Mama'">
                     <div class="product-info">
                         <div class="product-title">${item.name}</div>
                         <div class="product-desc">${item.description}</div>
@@ -241,7 +243,16 @@
             }
         }
 
-        tg.onEvent('mainButtonClicked', () => tg.sendData(JSON.stringify(Object.values(cart))));
+        // ВІДПРАВКА ДАНИХ ТА ЗАКРИТТЯ
+        tg.onEvent('mainButtonClicked', function() {
+            const data = JSON.stringify(Object.values(cart));
+            tg.sendData(data); 
+            
+            // Закриваємо вікно, щоб скинути сесію Web App
+            setTimeout(() => {
+                tg.close();
+            }, 100);
+        });
 
         function filterMenu(category, element) {
             document.querySelectorAll('.category-item').forEach(btn => btn.classList.remove('active'));
