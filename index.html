@@ -7,25 +7,18 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         body { font-family: 'Segoe UI', sans-serif; background: #1a1a1a; color: white; margin: 0; padding: 0; }
-        
-        /* Панель категорій */
         .categories { 
             display: flex; overflow-x: auto; width: 100%; background: #252525; 
             padding: 12px 5px; position: sticky; top: 0; z-index: 100; 
             border-bottom: 1px solid #333; scrollbar-width: none;
         }
         .categories::-webkit-scrollbar { display: none; }
-        
         .category-item { 
             padding: 8px 20px; margin: 0 5px; background: #333; border-radius: 20px; 
             white-space: nowrap; font-size: 14px; cursor: pointer; transition: 0.3s;
-            border: 1px solid transparent;
         }
-        .category-item.active { background: #ffcc00; color: black; font-weight: bold; border-color: #ffcc00; }
-
-        .container { display: flex; flex-direction: column; align-items: center; padding: 15px; }
-        
-        /* Картки товарів */
+        .category-item.active { background: #ffcc00; color: black; font-weight: bold; }
+        .container { display: flex; flex-direction: column; align-items: center; padding: 15px; padding-bottom: 80px; }
         .product-card { width: 100%; max-width: 380px; background: #2c2c2c; border-radius: 18px; margin-bottom: 20px; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.4); }
         .product-image { width: 100%; height: 260px; object-fit: cover; }
         .product-info { padding: 15px; }
@@ -34,6 +27,7 @@
         .product-footer { display: flex; justify-content: space-between; align-items: center; }
         .price { font-size: 20px; color: #ffcc00; font-weight: bold; }
         .add-btn { background: #ffcc00; border: none; padding: 10px 22px; border-radius: 12px; font-weight: bold; cursor: pointer; }
+        .add-btn.added { background: #4caf50; color: white; }
     </style>
 </head>
 <body>
@@ -42,31 +36,34 @@
         <div class="category-item active" onclick="filterMenu('Всі', this)">Всі</div>
     </div>
 
-    <div class="container" id="product-container">
-        <p>Завантаження меню...</p>
-    </div>
+    <div class="container" id="product-container"></div>
 
     <script>
         let allProducts = [];
+        let cart = [];
+        const tg = window.Telegram.WebApp;
 
-        // 1. Завантажуємо дані
+        tg.ready();
+        tg.expand();
+
+        // Налаштування головної кнопки Telegram
+        tg.MainButton.setParams({
+            text: "ПЕРЕГЛЯНУТИ ЗАМОВЛЕННЯ",
+            color: "#ffcc00",
+            text_color: "#000000"
+        });
+
         fetch('menu_data.json')
             .then(res => res.json())
             .then(data => {
                 allProducts = data;
-                createCategoryButtons(); // Автоматично створюємо кнопки
+                createCategoryButtons();
                 renderProducts(allProducts);
-            })
-            .catch(err => {
-                document.getElementById('product-container').innerHTML = "<p>Помилка завантаження даних</p>";
             });
 
-        // 2. Функція створення кнопок на основі категорій з JSON
         function createCategoryButtons() {
             const bar = document.getElementById('category-bar');
-            // Отримуємо список унікальних категорій
             const categories = [...new Set(allProducts.map(p => p.category))];
-            
             categories.forEach(cat => {
                 const btn = document.createElement('div');
                 btn.className = 'category-item';
@@ -76,22 +73,23 @@
             });
         }
 
-        // 3. Функція відображення товарів
         function renderProducts(products) {
             const container = document.getElementById('product-container');
             container.innerHTML = '';
-            
             products.forEach(item => {
+                const isAdded = cart.some(p => p.name === item.name);
                 const card = document.createElement('div');
                 card.className = 'product-card';
                 card.innerHTML = `
-                    <img src="${item.image}" class="product-image" onerror="this.src='https://via.placeholder.com/400x300?text=No+Photo'">
+                    <img src="${item.image}" class="product-image">
                     <div class="product-info">
                         <div class="product-title">${item.name}</div>
                         <div class="product-desc">${item.description}</div>
                         <div class="product-footer">
                             <div class="price">${item.price} грн</div>
-                            <button class="add-btn">Додати +</button>
+                            <button class="add-btn ${isAdded ? 'added' : ''}" onclick="toggleCart('${item.name}', ${item.price}, this)">
+                                ${isAdded ? 'В кошику ✓' : 'Додати +'}
+                            </button>
                         </div>
                     </div>
                 `;
@@ -99,25 +97,42 @@
             });
         }
 
-        // 4. Логіка фільтрації
-        function filterMenu(category, element) {
-            // Оновлюємо активну кнопку
-            document.querySelectorAll('.category-item').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
-
-            if (category === 'Всі') {
-                renderProducts(allProducts);
+        function toggleCart(name, price, btn) {
+            const index = cart.findIndex(p => p.name === name);
+            if (index > -1) {
+                cart.splice(index, 1);
+                btn.innerText = "Додати +";
+                btn.classList.remove('added');
             } else {
-                const filtered = allProducts.filter(p => p.category === category);
-                renderProducts(filtered);
+                cart.push({ name, price });
+                btn.innerText = "В кошику ✓";
+                btn.classList.add('added');
             }
-            // Скролимо вгору при зміні категорії
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateMainButton();
         }
 
-        const tg = window.Telegram.WebApp;
-        tg.ready();
-        tg.expand();
+        function updateMainButton() {
+            if (cart.length === 0) {
+                tg.MainButton.hide();
+            } else {
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+                tg.MainButton.setText(`ЗАМОВИТИ (${total} грн)`);
+                tg.MainButton.show();
+            }
+        }
+
+        // Відправка замовлення в бот
+        tg.onEvent('mainButtonClicked', function() {
+            const data = JSON.stringify(cart);
+            tg.sendData(data); // Це відправляє дані назад у бот
+        });
+
+        function filterMenu(category, element) {
+            document.querySelectorAll('.category-item').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            const filtered = category === 'Всі' ? allProducts : allProducts.filter(p => p.category === category);
+            renderProducts(filtered);
+        }
     </script>
 </body>
 </html>
