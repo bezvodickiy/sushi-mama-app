@@ -94,11 +94,21 @@
                 tg.MainButton.setText(`ОФОРМИТИ ЗАМОВЛЕННЯ — ${total} грн`);
                 tg.MainButton.show();
             }
-        }
-
         tg.onEvent('mainButtonClicked', function() {
-            tg.sendData(JSON.stringify(Object.values(cart)));
-            tg.close();
+            // Робимо кнопку знову активною на випадок залипання
+            tg.MainButton.showProgress();
+            
+            const data = JSON.stringify(Object.values(cart));
+            
+            // Відправляємо дані
+            tg.sendData(data); 
+            
+            // Очищуємо кошик і закриваємо
+            cart = {};
+            setTimeout(() => {
+                tg.MainButton.hideProgress();
+                tg.close();
+            }, 300);
         });
 
         function filterMenu(category, element) {
