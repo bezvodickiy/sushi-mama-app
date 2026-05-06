@@ -102,28 +102,38 @@
         }
 
         tg.onEvent('mainButtonClicked', function() {
-            // Візуальний відгук
+            // Перевіряємо, чи є взагалі щось у кошику
+            const cartValues = Object.values(cart);
+            if (cartValues.length === 0) {
+                tg.MainButton.hide();
+                return;
+            }
+
             tg.MainButton.showProgress();
             
-            const data = JSON.stringify(Object.values(cart));
+            // Формуємо дані
+            const resultData = JSON.stringify(cartValues);
             
-            // Використовуємо стандартний метод, але з невеликою затримкою для Desktop
-            try {
-                tg.sendData(data);
-                
-                // Очищуємо кошик локально
-                cart = {};
-                render(); 
-                
-                // Закриваємо вікно не миттєво, а через 200мс
-                setTimeout(() => {
+            // Спроба відправки з обробкою через невеликий "пінок" для Telegram
+            setTimeout(() => {
+                try {
+                    // Використовуємо sendData
+                    tg.sendData(resultData);
+                    
+                    // Важливо: обнуляємо кошик і візуал ПЕРЕД закриттям
+                    cart = {};
+                    renderProducts();
+                    
+                    // Даємо ще трохи часу на пересилку пакетів даних
+                    setTimeout(() => {
+                        tg.MainButton.hideProgress();
+                        tg.close();
+                    }, 150);
+                } catch (error) {
+                    alert("Помилка відправки: " + error);
                     tg.MainButton.hideProgress();
-                    tg.close();
-                }, 200);
-            } catch (e) {
-                console.error("Помилка відправки:", e);
-                tg.close();
-            }
+                }
+            }, 100);
         });
         function filterMenu(cat, el) {
             currentCategory = cat; // Оновлюємо поточну категорію
