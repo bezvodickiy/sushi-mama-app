@@ -11,7 +11,7 @@
         .categories { display: flex; overflow-x: auto; padding: 15px 5px; position: sticky; top: 0; background: #FCF9F1; z-index: 100; border-bottom: 1px solid #E4E0D5; scrollbar-width: none; }
         .category-item { padding: 8px 15px; margin: 0 5px; white-space: nowrap; font-size: 12px; font-weight: 600; text-transform: uppercase; cursor: pointer; border-bottom: 2px solid transparent; }
         .category-item.active { color: #2B463C; border-bottom: 2px solid #2B463C; }
-        .container { display: flex; flex-direction: column; align-items: center; padding: 15px; padding-bottom: 100px; }
+        .container { display: flex; flex-direction: column; align-items: center; padding: 15px; padding-bottom: 110px; }
         .product-card { width: 100%; max-width: 400px; background: #fff; margin-bottom: 20px; border: 1px solid #E4E0D5; }
         .product-image { width: 100%; height: 250px; object-fit: cover; }
         .product-info { padding: 15px; }
@@ -26,59 +26,40 @@
     </style>
 </head>
 <body>
-    <div class="categories" id="cat-bar"><div class="category-item active" id="btn-all" onclick="filterMenu('Всі', this)">Всі</div></div>
+    <div class="categories" id="cat-bar"><div class="category-item active" onclick="filterMenu('Всі', this)">Всі</div></div>
     <div class="container" id="main-cont"></div>
 
     <script>
-        let allItems = []; 
-        let cart = {}; 
-        let currentCategory = 'Всі'; // Запам'ятовуємо категорію
+        let allItems = []; let cart = {}; let currentCategory = 'Всі';
         const tg = window.Telegram.WebApp;
         
         window.onload = function() {
             tg.ready(); tg.expand();
             tg.MainButton.setParams({ color: "#2B463C", text_color: "#FFFFFF" });
-            
-            fetch('menu_data.json?v=' + Date.now())
-                .then(r => r.json())
-                .then(data => {
-                    allItems = data;
-                    const cats = [...new Set(data.map(i => i.category))];
-                    cats.forEach(c => {
-                        const d = document.createElement('div'); d.className = 'category-item';
-                        d.innerText = c; d.onclick = (e) => filterMenu(c, e.target);
-                        document.getElementById('cat-bar').appendChild(d);
-                    });
-                    render();
+            fetch('menu_data.json?v=' + Date.now()).then(r => r.json()).then(data => {
+                allItems = data;
+                [...new Set(data.map(i => i.category))].forEach(c => {
+                    const d = document.createElement('div'); d.className = 'category-item';
+                    d.innerText = c; d.onclick = (e) => filterMenu(c, e.target);
+                    document.getElementById('cat-bar').appendChild(d);
                 });
+                render();
+            });
         };
 
         function render() {
-            const c = document.getElementById('main-cont'); 
-            c.innerHTML = '';
-            
-            // Фільтруємо список згідно з обраною категорією
-            const itemsToRender = currentCategory === 'Всі' 
-                ? allItems 
-                : allItems.filter(i => i.category === currentCategory);
-
-            itemsToRender.forEach(i => {
+            const c = document.getElementById('main-cont'); c.innerHTML = '';
+            const filtered = currentCategory === 'Всі' ? allItems : allItems.filter(i => i.category === currentCategory);
+            filtered.forEach(i => {
                 const count = cart[i.name] ? cart[i.name].count : 0;
                 const card = document.createElement('div'); card.className = 'product-card';
                 card.innerHTML = `
-                    <img src="${i.image}" class="product-image" onerror="this.src='https://via.placeholder.com/400x300'">
-                    <div class="product-info">
-                        <div class="product-title">${i.name}</div>
-                        <div class="product-desc">${i.description}</div>
-                        <div class="product-footer">
-                            <div class="price">${i.price} грн</div>
-                            <div id="ctrl-${i.name.replace(/\s+/g, '')}">
-                                ${count > 0 ? 
-                                `<div class="counter"><button class="btn-c" onclick="change('${i.name}',${i.price},-1)">-</button><span class="count-val">${count}</span><button class="btn-c" onclick="change('${i.name}',${i.price},1)">+</button></div>` : 
-                                `<button class="add-btn" onclick="change('${i.name}',${i.price},1)">ДОДАТИ +</button>`}
-                            </div>
-                        </div>
-                    </div>`;
+                    <img src="${i.image}" class="product-image">
+                    <div class="product-info"><div class="product-title">${i.name}</div><div class="product-desc">${i.description}</div>
+                    <div class="product-footer"><div class="price">${i.price} грн</div>
+                    <div id="ctrl-${i.name.replace(/\s+/g, '')}">${count > 0 ? 
+                    `<div class="counter"><button class="btn-c" onclick="change('${i.name}',${i.price},-1)">-</button><span class="count-val">${count}</span><button class="btn-c" onclick="change('${i.name}',${i.price},1)">+</button></div>` : 
+                    `<button class="add-btn" onclick="change('${i.name}',${i.price},1)">ДОДАТИ +</button>`}</div></div></div>`;
                 c.appendChild(card);
             });
         }
@@ -87,40 +68,27 @@
             if(!cart[n]) cart[n] = {name:n, price:p, count:0};
             cart[n].count += d;
             if(cart[n].count <= 0) delete cart[n];
-            render(); // Тепер рендер знає, яку категорію показувати
-            updateBtn();
+            render(); updateBtn();
         }
 
         function updateBtn() {
             const vals = Object.values(cart);
-            if(vals.length === 0) tg.MainButton.hide();
+            if(!vals.length) tg.MainButton.hide();
             else {
-                const sum = vals.reduce((a, b) => a + (b.price * b.count), 0);
-                tg.MainButton.setText(`ЗАМОВИТИ — ${sum} грн`);
+                tg.MainButton.setText(`ЗАМОВИТИ — ${vals.reduce((a,b)=>a+(b.price*b.count),0)} грн`);
                 tg.MainButton.show();
             }
         }
 
         tg.onEvent('mainButtonClicked', function() {
-            const cartValues = Object.values(cart);
-            if (cartValues.length === 0) return;
-
             tg.MainButton.showProgress();
-            
-            // Відправляємо дані безпосередньо
-            tg.sendData(JSON.stringify(cartValues));
-            
-            // Очищуємо кошик простою дією
+            tg.sendData(JSON.stringify(Object.values(cart)));
             cart = {};
-            
-            // Закриваємо вікно через паузу
-            setTimeout(() => {
-                tg.MainButton.hideProgress();
-                tg.close();
-            }, 200);
+            setTimeout(() => { tg.close(); }, 400); // Збільшено для Desktop
         });
+
         function filterMenu(cat, el) {
-            currentCategory = cat; // Оновлюємо поточну категорію
+            currentCategory = cat;
             document.querySelectorAll('.category-item').forEach(b => b.classList.remove('active'));
             el.classList.add('active');
             render();
