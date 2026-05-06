@@ -12,16 +12,17 @@
         .category-item { padding: 8px 15px; margin: 0 5px; white-space: nowrap; font-size: 12px; font-weight: 600; text-transform: uppercase; cursor: pointer; border-bottom: 2px solid transparent; }
         .category-item.active { color: #2B463C; border-bottom: 2px solid #2B463C; }
         .container { display: flex; flex-direction: column; align-items: center; padding: 15px; padding-bottom: 100px; }
-        .product-card { width: 100%; max-width: 400px; background: #fff; margin-bottom: 20px; border: 1px solid #E4E0D5; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .product-card { width: 100%; max-width: 400px; background: #fff; margin-bottom: 20px; border: 1px solid #E4E0D5; }
         .product-image { width: 100%; height: 250px; object-fit: cover; }
         .product-info { padding: 15px; }
-        .product-title { font-family: 'Playfair Display', serif; font-size: 18px; color: #2B463C; margin-bottom: 5px; }
-        .product-desc { font-size: 12px; color: #7A7970; margin-bottom: 15px; }
+        .product-title { font-family: 'Playfair Display', serif; font-size: 18px; color: #2B463C; margin-bottom: 5px; text-transform: uppercase; }
+        .product-desc { font-size: 12px; color: #7A7970; margin-bottom: 15px; line-height: 1.4; }
         .product-footer { display: flex; justify-content: space-between; align-items: center; }
-        .price { font-weight: 700; color: #2B463C; }
-        .add-btn { background: #2B463C; color: #fff; border: none; padding: 8px 15px; cursor: pointer; border-radius: 4px; }
-        .counter { display: flex; align-items: center; border: 1px solid #2B463C; border-radius: 4px; }
-        .btn-c { background: none; border: none; padding: 5px 10px; font-weight: bold; color: #2B463C; cursor: pointer; }
+        .price { font-weight: 700; color: #2B463C; font-size: 16px; }
+        .add-btn { background: #2B463C; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 2px; font-weight: 600; }
+        .counter { display: flex; align-items: center; border: 1px solid #2B463C; }
+        .btn-c { background: none; border: none; padding: 8px 12px; font-weight: bold; color: #2B463C; cursor: pointer; font-size: 16px; }
+        .count-val { padding: 0 10px; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -30,21 +31,25 @@
 
     <script>
         let allItems = []; let cart = {}; const tg = window.Telegram.WebApp;
-        tg.ready(); tg.expand();
-
-        // Завантажуємо JSON з міткою часу для уникнення кешу
-        fetch('menu_data.json?v=' + Date.now())
-            .then(r => r.json())
-            .then(data => {
-                allItems = data;
-                const cats = [...new Set(data.map(i => i.category))];
-                cats.forEach(c => {
-                    const d = document.createElement('div'); d.className = 'category-item';
-                    d.innerText = c; d.onclick = (e) => filterMenu(c, e.target);
-                    document.getElementById('cat-bar').appendChild(d);
+        
+        window.onload = function() {
+            tg.ready(); tg.expand();
+            tg.MainButton.setParams({ color: "#2B463C", text_color: "#FFFFFF" });
+            
+            // Завантажуємо JSON
+            fetch('menu_data.json?v=' + Date.now())
+                .then(r => r.json())
+                .then(data => {
+                    allItems = data;
+                    const cats = [...new Set(data.map(i => i.category))];
+                    cats.forEach(c => {
+                        const d = document.createElement('div'); d.className = 'category-item';
+                        d.innerText = c; d.onclick = (e) => filterMenu(c, e.target);
+                        document.getElementById('cat-bar').appendChild(d);
+                    });
+                    render(allItems);
                 });
-                render(allItems);
-            });
+        };
 
         function render(items) {
             const c = document.getElementById('main-cont'); c.innerHTML = '';
@@ -52,15 +57,16 @@
                 const count = cart[i.name] ? cart[i.name].count : 0;
                 const card = document.createElement('div'); card.className = 'product-card';
                 card.innerHTML = `
-                    <img src="${i.image}" class="product-image">
+                    <img src="${i.image}" class="product-image" onerror="this.src='https://via.placeholder.com/400x300'">
                     <div class="product-info">
                         <div class="product-title">${i.name}</div>
                         <div class="product-desc">${i.description}</div>
                         <div class="product-footer">
                             <div class="price">${i.price} грн</div>
                             <div id="ctrl-${i.name.replace(/\s+/g, '')}">
-                                ${count > 0 ? `<div class="counter"><button class="btn-c" onclick="change('${i.name}',${i.price},-1)">-</button><span>${count}</span><button class="btn-c" onclick="change('${i.name}',${i.price},1)">+</button></div>` : 
-                                `<button class="add-btn" onclick="change('${i.name}',${i.price},1)">Додати</button>`}
+                                ${count > 0 ? 
+                                `<div class="counter"><button class="btn-c" onclick="change('${i.name}',${i.price},-1)">-</button><span class="count-val">${count}</span><button class="btn-c" onclick="change('${i.name}',${i.price},1)">+</button></div>` : 
+                                `<button class="add-btn" onclick="change('${i.name}',${i.price},1)">ДОДАТИ +</button>`}
                             </div>
                         </div>
                     </div>`;
@@ -70,8 +76,10 @@
 
         function change(n, p, d) {
             if(!cart[n]) cart[n] = {name:n, price:p, count:0};
-            cart[n].count += d; if(cart[n].count <= 0) delete cart[n];
-            render(allItems); updateBtn();
+            cart[n].count += d;
+            if(cart[n].count <= 0) delete cart[n];
+            render(allItems);
+            updateBtn();
         }
 
         function updateBtn() {
@@ -79,14 +87,23 @@
             if(vals.length === 0) tg.MainButton.hide();
             else {
                 const sum = vals.reduce((a, b) => a + (b.price * b.count), 0);
-                tg.MainButton.setText(`ЗАМОВИТИ: ${sum} грн`);
+                tg.MainButton.setText(`ОФОРМИТИ ЗАМОВЛЕННЯ — ${sum} грн`);
                 tg.MainButton.show();
             }
         }
 
-        tg.onEvent('mainButtonClicked', () => {
-            tg.sendData(JSON.stringify(Object.values(cart)));
-            tg.close();
+        tg.onEvent('mainButtonClicked', function() {
+            tg.MainButton.showProgress();
+            const data = JSON.stringify(Object.values(cart));
+            
+            // ВІДПРАВКА
+            tg.sendData(data);
+            
+            // ОЧИЩЕННЯ ПЕРЕД ЗАКРИТТЯМ
+            cart = {};
+            setTimeout(() => {
+                tg.close();
+            }, 300);
         });
 
         function filterMenu(cat, el) {
