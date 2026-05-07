@@ -293,4 +293,81 @@
         "description": "Японські пельмені з куркою. Порція: 15 шт.",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/fast-food/gioza_z_kurkoy.jpg"
     },
+    {
+        "name": "Сет 5 ФІЛАДЕЛЬФІЙ",
+        "price": 1120,
+        "category": "СЕТИ",
+        "description": "Філадельфія: креветка, тунець, лосось, вугор, сезам. Вага: 1360г | 40 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_5filadel.jpg"
+    },
+    {
+        "name": "Сет ФІЛАДЕЛЬФІЯ",
+        "price": 980,
+        "category": "СЕТИ",
+        "description": "Філадельфія: креветка, лосось, вугор; Макі: авокадо, лосось. Вага: 1180г | 40 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_filadel.jpg"
+    },
+    {
+        "name": "Сет КАЛІФОРНІЯ",
+        "price": 980,
+        "category": "СЕТИ",
+        "description": "Каліфорнія: креветка, тунець, лосось, вугор. Вага: 1000г | 32 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_kalifornia.jpg"
+    },
+    {
+        "name": "Сет СМАЧНИЙ",
+        "price": 1925,
+        "category": "СЕТИ",
+        "description": "Філа: креветка, лосось, вугор; Каліфорнія: креветка, лосось, вугор; Унагі макі, Фудзі. Вага: 2050г | 64 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_smachniy.jpg"
+    },
+    {
+        "name": "Сет ФАВОРИТ",
+        "price": 860,
+        "category": "СЕТИ",
+        "description": "Каліфорнія краб, Фудзі лосось, Італійський, Боніто, Сакура. Вага: 1200г | 40 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_favourite.jpg"
+    },
+    {
+        "name": "Сет ФУДЗІ",
+        "price": 550,
+        "category": "СЕТИ",
+        "description": "Філадельфія сезам, Дабл філадельфія, Фудзі лосось. Вага: 780г | 28 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_fudzi.jpg"
+    },
+    {
+        "name": "Сет ЗАПЕЧЕНИЙ",
+        "price": 990,
+        "category": "СЕТИ",
+        "description": "Запечений: з креветкою, з лососем, з вугром, спайсі. Вага: 1260г | 32 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_zapecheniy.jpg"
+    },
+    {
+        "name": "Сет ВЕСЕЛКА",
+        "price": 900,
+        "category": "СЕТИ",
+        "description": "Yellow roll, Blue roll, Red roll. Вага: 740г | 24 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_veselka.jpg"
+    },
+    {
+        "name": "Сет ІКУРА",
+        "price": 1010,
+        "category": "СЕТИ",
+        "description": "Ікура: тунець, лосось, вугор, краб. Вага: 945г | 32 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_ikura.jpg"
+    },
+    {
+        "name": "Сет МАКІ",
+        "price": 495,
+        "category": "СЕТИ",
+        "description": "Макі: авокадо, лосось, краб; Унагі макі. Вага: 740г | 32 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_maki.jpg"
+    },
+    {
+        "name": "Сет 4 ДРАКОНИ",
+        "price": 1150,
+        "category": "СЕТИ",
+        "description": "Дракон: Червоний, Золотий, Зелений, Чорний. Вага: 1080г | 32 шт.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_4dragon.jpg"
+    },
 ]
