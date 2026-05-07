@@ -1,4 +1,32 @@
 [
+     {
+        "category": "ЗАПЕЧЕНІ РОЛИ",
+        "name": "Темпура з лососем",
+        "description": "Норі, рис, сир, огірок, лосось, кляр. 270 г",
+        "price": 235,
+        "image": "img/zapech_rolls/tempura_losos.jpg"
+    },
+    {
+        "category": "ЗАПЕЧЕНІ РОЛИ",
+        "name": "Темпура з креветкою",
+        "description": "Норі, рис, сир, огірок, креветка, кляр. 270 г",
+        "price": 285,
+        "image": "img/zapech_rolls/tempura_krevet.jpg"
+    },
+    {
+        "category": "ЗАПЕЧЕНІ РОЛИ",
+        "name": "Темпура з вугрем",
+        "description": "Норі, рис, сир, огірок, вугор, кляр. 270 г",
+        "price": 270,
+        "image": "img/zapech_rolls/tempura_vugor.jpg"
+    },
+    {
+        "category": "ЗАПЕЧЕНІ РОЛИ",
+        "name": "Жульєн",
+        "description": "Норі, рис, крем-сир, огірок, смажені гриби та м'ясо, сир. 270 г",
+        "price": 255,
+        "image": "img/zapech_rolls/zapecheni_julien.jpg"
+    },
     {
         "category": "ЗАПЕЧЕНІ РОЛИ",
         "name": "Запечений з лососем",
@@ -26,34 +54,6 @@
         "description": "Норі, рис, сир, краб мікс, огірок, авокадо, лосось, спайсі соус. 310 г",
         "price": 270,
         "image": "img/zapech_rolls/zapecheni_spaysi.jpg"
-    },
-    {
-        "category": "ТЕМПУРА",
-        "name": "Темпура з лососем",
-        "description": "Норі, рис, сир, огірок, лосось, кляр. 270 г",
-        "price": 235,
-        "image": "img/zapech_rolls/tempura_losos.jpg"
-    },
-    {
-        "category": "ТЕМПУРА",
-        "name": "Темпура з креветкою",
-        "description": "Норі, рис, сир, огірок, креветка, кляр. 270 г",
-        "price": 285,
-        "image": "img/zapech_rolls/tempura_krevet.jpg"
-    },
-    {
-        "category": "ТЕМПУРА",
-        "name": "Темпура з вугрем",
-        "description": "Норі, рис, сир, огірок, вугор, кляр. 270 г",
-        "price": 270,
-        "image": "img/zapech_rolls/tempura_vugor.jpg"
-    },
-    {
-        "category": "НОВИНКИ",
-        "name": "Жульєн",
-        "description": "Норі, рис, крем-сир, огірок, смажені гриби та м'ясо, сир. 270 г",
-        "price": 255,
-        "image": "img/zapech_rolls/zapecheni_julien.jpg"
     },
     {
         "category": "РОЛИ",
@@ -114,7 +114,7 @@
     {
         "name": "Sasha",
         "price": 266,
-        "category": "Роли",
+        "category": "РОЛИ",
         "description": "Смачний рол",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/item_1778146394.jpg"
     }
