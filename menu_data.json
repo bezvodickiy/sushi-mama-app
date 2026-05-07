@@ -370,4 +370,25 @@
         "description": "Дракон: Червоний, Золотий, Зелений, Чорний. Вага: 1080г | 32 шт.",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/set/set_4dragon.jpg"
     },
+    {
+        "name": "Рол-дог Тунець-Лосось",
+        "price": 335,
+        "category": "РОЛИ",
+        "description": "Лосось, тунець, рис, крем-сир, ікра, стружка тунця, огірок, унагі соус, імбир. Вага: 350г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/roll_dogs/roll_dog_tuna_losos.jpg"
+    },
+    {
+        "name": "Рол-дог Креветка-Вугор",
+        "price": 335,
+        "category": "РОЛИ",
+        "description": "Креветка, вугор, рис, авокадо, крем-сир, унагі соус, імбир, ікра летючої риби. Вага: 350г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/roll_dogs/roll_dog_krevetka_vugor.jpg"
+    },
+    {
+        "name": "Рол-дог Креветка-Лосось",
+        "price": 335,
+        "category": "РОЛИ",
+        "description": "Креветка, лосось, рис, авокадо, крем-сир, унагі соус, імбир, ікра летючої риби. Вага: 350г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/roll_dogs/roll_dog_krevetka_losos.jpg"
+    },
 ]
