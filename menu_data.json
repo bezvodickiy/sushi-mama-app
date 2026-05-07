@@ -110,12 +110,5 @@
         "description": "Удон, курка, болгарський перець, спаржа, морква. 250 г",
         "price": 180,
         "image": "img/fast-food/udon_kurka_ovoch.jpg"
-    },
-    {
-        "name": "Rolini",
-        "price": 267,
-        "category": "Роли",
-        "description": "Смачний рол від Sushi Mama",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYAzqS6BTbe1tnI9KSspxdJ8meFsa9mcIaOQ&s"
     }
 ]
