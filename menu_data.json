@@ -110,12 +110,5 @@
         "description": "Удон, курка, болгарський перець, спаржа, морква. 250 г",
         "price": 180,
         "image": "img/fast-food/udon_kurka_ovoch.jpg"
-    },
-    {
-        "name": "Сетік",
-        "price": 250,
-        "category": "СЕТИ",
-        "description": "Смачний рол",
-        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/item_1778147088.jpg"
     }
 ]
