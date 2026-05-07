@@ -110,5 +110,145 @@
         "description": "Удон, курка, болгарський перець, спаржа, морква. 250 г",
         "price": 180,
         "image": "img/fast-food/udon_kurka_ovoch.jpg"
+    },
+    {
+        "name": "Золотий Дракон",
+        "price": 340,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, лосось, ікра, вугор. Вага: 270г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/zoloti_dragon.jpg"
+    },
+    {
+        "name": "Зелений Дракон",
+        "price": 240,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, авокадо, ікра, вугор. Вага: 250г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/zeleni_dragon.jpg"
+    },
+    {
+        "name": "Червоний Дракон",
+        "price": 280,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, лосось, ікра, вугор. Вага: 270г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/red_dragon.jpg"
+    },
+    {
+        "name": "Чорний Дракон",
+        "price": 350,
+        "category": "РОЛИ",
+        "description": "Норі, чорний рис, сир, огірок, креветка, ікра, вугор. Вага: 290г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/black_dragon.jpg"
+    },
+    {
+        "name": "Боніто Лосось",
+        "price": 215,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, лосось, ікра, стружка тунця. Вага: 225г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/bonito_losos.jpg"
+    },
+    {
+        "name": "Боніто Вугор",
+        "price": 230,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, вугор, ікра, стружка тунця. Вага: 225г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/bonito_vugor.jpg"
+    },
+    {
+        "name": "Боніто Тунець",
+        "price": 215,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, тунець, ікра, стружка тунця. Вага: 225г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/bonito_tuna.jpg"
+    },
+    {
+        "name": "Боніто Креветка",
+        "price": 245,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, креветка, ікра, стружка тунця. Вага: 225г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/bonito_krevetka.jpg"
+    },
+    {
+        "name": "Фудзі Лосось",
+        "price": 210,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, лосось, унагі соус. Вага: 265г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/fudzi_losos.jpg"
+    },
+    {
+        "name": "Фудзі Вугор",
+        "price": 250,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, вугор, унагі соус. Вага: 265г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/fudzi_vugor.jpg"
+    },
+    {
+        "name": "Фудзі з креветкою",
+        "price": 265,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, креветка, унагі соус. Вага: 265г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/fudzi_krevetka.jpg"
+    },
+    {
+        "name": "Італійський рол з креветкою",
+        "price": 250,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, креветка, сир тостовий. Вага: 270г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/italiy_z_krevetkoy.jpg"
+    },
+    {
+        "name": "Італійський рол",
+        "price": 190,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, лосось, сир тостовий. Вага: 270г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/italiy.jpg"
+    },
+    {
+        "name": "Каліфорнія Краб",
+        "price": 115,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, краб мікс, кунжут чорний і білий. Вага: 210г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kalifornia_krab.jpg"
+    },
+    {
+        "name": "Каліфорнія Вугор",
+        "price": 280,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, авокадо, вугор, кунжут чорний. Вага: 240г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kalifornia_vugor.jpg"
+    },
+    {
+        "name": "Каліфорнія Лосось",
+        "price": 215,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, лосось, кунжут білий. Вага: 225г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kalifornia_losos.jpg"
+    },
+    {
+        "name": "Сакура",
+        "price": 170,
+        "category": "РОЛИ",
+        "description": "Норі, рис, сир, огірок, лосось, кунжут. Вага: 220г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/sakura.jpg"
+    },
+    {
+        "name": "RED РОЛ",
+        "price": 295,
+        "category": "РОЛИ",
+        "description": "Рис, лосось, тигрова креветка, сурімі, огірок, нитка чилі, ікра летючої риби. Вага: 280г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/red_roll.jpg"
+    },
+    {
+        "name": "YELLOW РОЛ",
+        "price": 325,
+        "category": "РОЛИ",
+        "description": "Креветка, вугор, крем-сир, рис, авокадо, ікра летючої риби. Вага: 270г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/yelov_roll.jpg"
+    },
+    {
+        "name": "BLUE РОЛ",
+        "price": 305,
+        "category": "РОЛИ",
+        "description": "Креветка, тунець, крем-сир, авокадо, ікра летючої риби, рис, стружка тунця. Вага: 280г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/blue_roll.jpg"
     }
 ]
