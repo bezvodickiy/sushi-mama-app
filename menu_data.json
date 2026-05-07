@@ -440,4 +440,74 @@
         "description": "Соус вершковий, моцарела, бекон, пармезан, яйце, шинка. Вага: 530г",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/photo_coming_soon.jpg"
     },
+    {
+        "name": "Coca-Cola 0.5л",
+        "price": 35,
+        "category": "НАПОЇ",
+        "description": "Класичний освіжаючий напій. Об'єм: 0.5л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Coca-Cola 1л",
+        "price": 50,
+        "category": "НАПОЇ",
+        "description": "Класичний освіжаючий напій. Об'єм: 1л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Fanta 0.5л",
+        "price": 35,
+        "category": "НАПОЇ",
+        "description": "Напій з яскравим смаком апельсина. Об'єм: 0.5л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Fanta 1л",
+        "price": 50,
+        "category": "НАПОЇ",
+        "description": "Напій з яскравим смаком апельсина. Об'єм: 1л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Sprite 0.5л",
+        "price": 35,
+        "category": "НАПОЇ",
+        "description": "Лимонно-лаймовий напій. Об'єм: 0.5л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Sprite 1л",
+        "price": 50,
+        "category": "НАПОЇ",
+        "description": "Лимонно-лаймовий напій. Об'єм: 1л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Сік Rich в асортименті 1л",
+        "price": 75,
+        "category": "НАПОЇ",
+        "description": "Якісний фруктовий сік (смак уточнюйте у оператора). Об'єм: 1л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Вода Bonaqua (газована/без газу) 0.5л",
+        "price": 25,
+        "category": "НАПОЇ",
+        "description": "Питна вода Bonaqua. Об'єм: 0.5л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Burn (енергетичний напій)",
+        "price": 60,
+        "category": "НАПОЇ",
+        "description": "Енергетичний напій для бадьорості.",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Фузе Ті (холодний чай)",
+        "price": 40,
+        "category": "НАПОЇ",
+        "description": "Холодний чай з різними смаками. Об'єм: 0.5л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    }
 ]
