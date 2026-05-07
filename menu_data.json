@@ -391,4 +391,53 @@
         "description": "Креветка, лосось, рис, авокадо, крем-сир, унагі соус, імбир, ікра летючої риби. Вага: 350г",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/roll_dogs/roll_dog_krevetka_losos.jpg"
     },
+    {
+        "name": "Піца М'ясний Бум",
+        "price": 240,
+        "category": "ПІЦА",
+        "description": "Соус томатний, моцарела, шинка, салямі, куряче філе, бекон, мисливські ковбаски. Вага: 550г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/meat_boom.jpg"
+    },
+    {
+        "name": "Піца 4 Сири",
+        "price": 220,
+        "category": "ПІЦА",
+        "description": "Соус вершковий, моцарела, пармезан, дор блю, чедер. Вага: 480г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/4_cheeses.jpg"
+    },
+    {
+        "name": "Піца Кантрі",
+        "price": 210,
+        "category": "ПІЦА",
+        "description": "Соус томатний, моцарела, бекон, мисливські ковбаски, корнішони, цибуля кримська. Вага: 520г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Піца Гавайська",
+        "price": 195,
+        "category": "ПІЦА",
+        "description": "Соус вершковий, моцарела, куряче філе, ананас, кукурудза. Вага: 500г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Піца Маргарита",
+        "price": 160,
+        "category": "ПІЦА",
+        "description": "Соус томатний, подвійна моцарела, томати, базилік. Вага: 450г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Піца Пепероні",
+        "price": 200,
+        "category": "ПІЦА",
+        "description": "Соус томатний, моцарела, салямі пепероні, чилі. Вага: 480г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/photo_coming_soon.jpg"
+    },
+    {
+        "name": "Піца Карбонара",
+        "price": 215,
+        "category": "ПІЦА",
+        "description": "Соус вершковий, моцарела, бекон, пармезан, яйце, шинка. Вага: 530г",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/photo_coming_soon.jpg"
+    },
 ]
