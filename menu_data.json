@@ -1,114 +1,121 @@
 [
-  {
-    "category": "ЗАПЕЧЕНІ РОЛИ",
-    "name": "Запечений з лососем",
-    "description": "Норі, рис, сир, краб мікс, огірок, лосось. 310 г",
-    "price": 230,
-    "image": "img/zapech_rolls/zapecheni_losos.jpg"
-  },
-  {
-    "category": "ЗАПЕЧЕНІ РОЛИ",
-    "name": "Запечений з креветкою",
-    "description": "Норі, рис, сир, краб мікс, огірок, креветка, ікра. 310 г",
-    "price": 280,
-    "image": "img/zapech_rolls/zapecheni_krevet.jpg"
-  },
-  {
-    "category": "ЗАПЕЧЕНІ РОЛИ",
-    "name": "Запечений з вугрем",
-    "description": "Норі, рис, сир, краб мікс, огірок, вугор, ікра. 310 г",
-    "price": 280,
-    "image": "img/zapech_rolls/zapecheni_vugor.jpg"
-  },
-  {
-    "category": "ЗАПЕЧЕНІ РОЛИ",
-    "name": "Запечений Спайсі",
-    "description": "Норі, рис, сир, краб мікс, огірок, авокадо, лосось, спайсі соус. 310 г",
-    "price": 270,
-    "image": "img/zapech_rolls/zapecheni_spaysi.jpg"
-  },
-  {
-    "category": "ТЕМПУРА",
-    "name": "Темпура з лососем",
-    "description": "Норі, рис, сир, огірок, лосось, кляр. 270 г",
-    "price": 235,
-    "image": "img/zapech_rolls/tempura_losos.jpg"
-  },
-  {
-    "category": "ТЕМПУРА",
-    "name": "Темпура з креветкою",
-    "description": "Норі, рис, сир, огірок, креветка, кляр. 270 г",
-    "price": 285,
-    "image": "img/zapech_rolls/tempura_krevet.jpg"
-  },
-  {
-    "category": "ТЕМПУРА",
-    "name": "Темпура з вугрем",
-    "description": "Норі, рис, сир, огірок, вугор, кляр. 270 г",
-    "price": 270,
-    "image": "img/zapech_rolls/tempura_vugor.jpg"
-  },
-  {
-    "category": "НОВИНКИ",
-    "name": "Жульєн",
-    "description": "Норі, рис, крем-сир, огірок, смажені гриби та м'ясо, сир. 270 г",
-    "price": 255,
-    "image": "img/zapech_rolls/zapecheni_julien.jpg"
-  },
-  {
-    "category": "РОЛИ",
-    "name": "Філадельфія з лососем",
-    "description": "Норі, рис, сир вершковий, огірок, лосось. 280 г",
-    "price": 230,
-    "image": "img/rolls/fila_losos.jpg"
-  },
-  {
-    "category": "РОЛИ",
-    "name": "Філадельфія з креветкою",
-    "description": "Норі, рис, сир вершковий, огірок, лосось, креветка. 290 г",
-    "price": 295,
-    "image": "img/rolls/fila_krerv.jpg"
-  },
-  {
-    "category": "РОЛИ",
-    "name": "Філадельфія з вугрем",
-    "description": "Норі, рис, сир, огірок, вугор, соус унагі, кунжут. 290 г",
-    "price": 280,
-    "image": "img/rolls/fila_vugor.jpg"
-  },
-  {
-    "category": "РОЛИ",
-    "name": "Філадельфія з тунцем",
-    "description": "Норі, рис, сир, огірок, тунець. 290 г",
-    "price": 255,
-    "image": "img/rolls/fila_tuna.jpg"
-  },
-  {
-    "category": "СЕТИ",
-    "name": "Сет 5 Філадельфій",
-    "description": "Креветка, тунець, лосось, вугор, сезам. 1360 г",
-    "price": 1120,
-    "image": "img/set/set_5filadel.jpg"
-  },
-  {
-    "category": "СЕТИ",
-    "name": "Сет Філадельфія",
-    "description": "Креветка, лосось, вугор, макі авокадо/лосось. 1180 г",
-    "price": 980,
-    "image": "img/set/set_filadel.jpg"
-  },
-  {
-    "category": "ФАСТ ФУД",
-    "name": "Картопля фрі",
-    "description": "Маленька (45 грн) / Велика (60 грн). Вкажіть у коментарі.",
-    "price": 45,
-    "image": "img/fast-food/patato_free.jpg"
-  },
-  {
-    "category": "ФАСТ ФУД",
-    "name": "Удон з куркою та овочами",
-    "description": "Удон, курка, болгарський перець, спаржа, морква. 250 г",
-    "price": 180,
-    "image": "img/fast-food/udon_kurka_ovoch.jpg"
-  }
+    {
+        "category": "ЗАПЕЧЕНІ РОЛИ",
+        "name": "Запечений з лососем",
+        "description": "Норі, рис, сир, краб мікс, огірок, лосось. 310 г",
+        "price": 230,
+        "image": "img/zapech_rolls/zapecheni_losos.jpg"
+    },
+    {
+        "category": "ЗАПЕЧЕНІ РОЛИ",
+        "name": "Запечений з креветкою",
+        "description": "Норі, рис, сир, краб мікс, огірок, креветка, ікра. 310 г",
+        "price": 280,
+        "image": "img/zapech_rolls/zapecheni_krevet.jpg"
+    },
+    {
+        "category": "ЗАПЕЧЕНІ РОЛИ",
+        "name": "Запечений з вугрем",
+        "description": "Норі, рис, сир, краб мікс, огірок, вугор, ікра. 310 г",
+        "price": 280,
+        "image": "img/zapech_rolls/zapecheni_vugor.jpg"
+    },
+    {
+        "category": "ЗАПЕЧЕНІ РОЛИ",
+        "name": "Запечений Спайсі",
+        "description": "Норі, рис, сир, краб мікс, огірок, авокадо, лосось, спайсі соус. 310 г",
+        "price": 270,
+        "image": "img/zapech_rolls/zapecheni_spaysi.jpg"
+    },
+    {
+        "category": "ТЕМПУРА",
+        "name": "Темпура з лососем",
+        "description": "Норі, рис, сир, огірок, лосось, кляр. 270 г",
+        "price": 235,
+        "image": "img/zapech_rolls/tempura_losos.jpg"
+    },
+    {
+        "category": "ТЕМПУРА",
+        "name": "Темпура з креветкою",
+        "description": "Норі, рис, сир, огірок, креветка, кляр. 270 г",
+        "price": 285,
+        "image": "img/zapech_rolls/tempura_krevet.jpg"
+    },
+    {
+        "category": "ТЕМПУРА",
+        "name": "Темпура з вугрем",
+        "description": "Норі, рис, сир, огірок, вугор, кляр. 270 г",
+        "price": 270,
+        "image": "img/zapech_rolls/tempura_vugor.jpg"
+    },
+    {
+        "category": "НОВИНКИ",
+        "name": "Жульєн",
+        "description": "Норі, рис, крем-сир, огірок, смажені гриби та м'ясо, сир. 270 г",
+        "price": 255,
+        "image": "img/zapech_rolls/zapecheni_julien.jpg"
+    },
+    {
+        "category": "РОЛИ",
+        "name": "Філадельфія з лососем",
+        "description": "Норі, рис, сир вершковий, огірок, лосось. 280 г",
+        "price": 230,
+        "image": "img/rolls/fila_losos.jpg"
+    },
+    {
+        "category": "РОЛИ",
+        "name": "Філадельфія з креветкою",
+        "description": "Норі, рис, сир вершковий, огірок, лосось, креветка. 290 г",
+        "price": 295,
+        "image": "img/rolls/fila_krerv.jpg"
+    },
+    {
+        "category": "РОЛИ",
+        "name": "Філадельфія з вугрем",
+        "description": "Норі, рис, сир, огірок, вугор, соус унагі, кунжут. 290 г",
+        "price": 280,
+        "image": "img/rolls/fila_vugor.jpg"
+    },
+    {
+        "category": "РОЛИ",
+        "name": "Філадельфія з тунцем",
+        "description": "Норі, рис, сир, огірок, тунець. 290 г",
+        "price": 255,
+        "image": "img/rolls/fila_tuna.jpg"
+    },
+    {
+        "category": "СЕТИ",
+        "name": "Сет 5 Філадельфій",
+        "description": "Креветка, тунець, лосось, вугор, сезам. 1360 г",
+        "price": 1120,
+        "image": "img/set/set_5filadel.jpg"
+    },
+    {
+        "category": "СЕТИ",
+        "name": "Сет Філадельфія",
+        "description": "Креветка, лосось, вугор, макі авокадо/лосось. 1180 г",
+        "price": 980,
+        "image": "img/set/set_filadel.jpg"
+    },
+    {
+        "category": "ФАСТ ФУД",
+        "name": "Картопля фрі",
+        "description": "Маленька (45 грн) / Велика (60 грн). Вкажіть у коментарі.",
+        "price": 45,
+        "image": "img/fast-food/patato_free.jpg"
+    },
+    {
+        "category": "ФАСТ ФУД",
+        "name": "Удон з куркою та овочами",
+        "description": "Удон, курка, болгарський перець, спаржа, морква. 250 г",
+        "price": 180,
+        "image": "img/fast-food/udon_kurka_ovoch.jpg"
+    },
+    {
+        "name": "Rolini",
+        "price": 267,
+        "category": "Роли",
+        "description": "Смачний рол від Sushi Mama",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYAzqS6BTbe1tnI9KSspxdJ8meFsa9mcIaOQ&s"
+    }
 ]
