@@ -445,14 +445,14 @@
     "name": "Італійський рол з креветкою",
     "description": "Норі, рис, сир, огірок, креветка, сир тостовий. Вага: 270г",
     "price": 250,
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/italy_z_krevetkoy.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/italiy_z_krevetkoy.jpg"
   },
   {
     "category": "РОЛИ",
     "name": "Італійський рол",
     "description": "Норі, рис, сир, огірок, лосось, сир тостовий. Вага: 270г",
     "price": 190,
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/italy.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/italiy.jpg"
   },
   {
     "category": "РОЛИ",
@@ -522,7 +522,7 @@
     "name": "Канада в ікрі летючої риби",
     "description": "Норі, рис, сир, авокадо, лосось, ікра. Вага: 240г",
     "price": 245,
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kanada_v_ikri_let_ribu.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kanada_v_ikri_let_rubu.jpg"
   },
   {
     "category": "РОЛИ",
