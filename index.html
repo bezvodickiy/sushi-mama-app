@@ -2,166 +2,58 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sushi Mama Menu</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1a1a1a; /* Темний фон */
-            color: #ffffff; /* Білий текст */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0; padding: 0;
+            background-color: #1a1a1a;
+            color: #ffffff;
             user-select: none;
         }
-
-        .header {
-            background-color: #2d2d2d;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .categories {
-            display: flex;
-            overflow-x: auto;
-            padding: 10px;
-            gap: 10px;
-            background-color: #252525;
-        }
-
-        .category-btn {
-            padding: 8px 15px;
-            background-color: #3d3d3d;
-            border: none;
-            border-radius: 20px;
-            color: white;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-
-        .category-btn.active {
-            background-color: #e67e22;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            padding: 10px;
-            padding-bottom: 80px;
-        }
-
-        .item-card {
-            background-color: #2d2d2d;
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #3d3d3d;
-        }
-
-        .item-img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-
-        .item-info {
-            padding: 10px;
-            flex-grow: 1;
-        }
-
-        .item-name {
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .item-price {
-            color: #e67e22;
-            font-weight: bold;
-        }
-
-        .item-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            background-color: #353535;
-        }
-
-        .btn-add {
-            background-color: #e67e22;
-            color: white;
-            border: none;
-            padding: 5px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .counter {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-btn {
-            position: fixed;
-            bottom: 15px;
-            left: 15px;
-            right: 15px;
-            background-color: #e67e22;
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            display: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-
-        /* Стилі для коментаря та опису */
-        .item-desc {
-            font-size: 0.75rem;
-            color: #aaaaaa;
-            margin-top: 5px;
-        }
+        .header { background: #2d2d2d; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        .categories { display: flex; overflow-x: auto; padding: 10px; gap: 8px; background: #252525; scrollbar-width: none; }
+        .category-btn { padding: 8px 15px; background: #3d3d3d; border: none; border-radius: 20px; color: white; white-space: nowrap; }
+        .category-btn.active { background: #e67e22; }
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; padding-bottom: 90px; }
+        .item-card { background: #2d2d2d; border-radius: 12px; overflow: hidden; border: 1px solid #3d3d3d; display: flex; flex-direction: column; }
+        .item-img { width: 100%; height: 110px; object-fit: cover; }
+        .item-info { padding: 8px; flex-grow: 1; }
+        .item-name { font-size: 0.85rem; font-weight: bold; height: 2.2rem; overflow: hidden; }
+        .item-price { color: #e67e22; font-weight: bold; margin-top: 5px; }
+        .item-controls { padding: 8px; background: #353535; }
+        .btn-add { width: 100%; background: #e67e22; color: white; border: none; padding: 8px; border-radius: 8px; font-weight: bold; }
+        .counter { display: flex; align-items: center; justify-content: space-between; background: #3d3d3d; border-radius: 8px; padding: 4px; }
+        .counter-btn { background: none; border: none; color: white; font-size: 1.2rem; width: 30px; height: 30px; }
+        .footer-btn { position: fixed; bottom: 20px; left: 20px; right: 20px; background: #e67e22; color: white; border: none; padding: 16px; border-radius: 14px; font-weight: bold; display: none; z-index: 1000; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h2 style="margin:0; color: #e67e22;">Sushi Mama 🍣</h2>
-    </div>
-
+    <div class="header"><h2 style="margin:0; color: #e67e22;">Sushi Mama 🍣</h2></div>
     <div id="categories" class="categories"></div>
     <div id="menu-grid" class="menu-grid"></div>
-
-    <button id="main-btn" class="footer-btn" onclick="sendOrder()">
-        Переглянути замовлення
-    </button>
+    <button id="main-btn" class="footer-btn" onclick="sendOrder()">Замовити</button>
 
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand();
-        tg.MainButton.hide();
-
-        let menuData = [];
+        let menuData = {};
         let cart = {};
 
-        // Завантаження меню з GitHub
-        fetch('https://raw.githubusercontent.com/ВАШ_ЛОГІН/ВАШ_РЕПОЗИТОРІЙ/main/menu_data.json')
+        fetch('https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json')
             .then(res => res.json())
             .then(data => {
-                menuData = data;
+                menuData = data.reduce((acc, item) => {
+                    if (!acc[item.category]) acc[item.category] = [];
+                    acc[item.category].push(item);
+                    return acc;
+                }, {});
                 renderCategories();
-                renderMenu(Object.keys(data)[0]);
-            });
+                renderMenu(Object.keys(menuData)[0]);
+            })
+            .catch(err => { document.getElementById('menu-grid').innerHTML = 'Помилка завантаження...'; });
 
         function renderCategories() {
             const container = document.getElementById('categories');
@@ -182,60 +74,42 @@
             const grid = document.getElementById('menu-grid');
             grid.innerHTML = '';
             menuData[category].forEach(item => {
+                const count = cart[item.name] ? cart[item.name].count : 0;
                 const card = document.createElement('div');
                 card.className = 'item-card';
-                const count = cart[item.name] ? cart[item.name].count : 0;
-                
                 card.innerHTML = `
-                    <img src="${item.image}" class="item-img" onerror="this.src='https://via.placeholder.com/150'">
-                    <div class="item-info">
-                        <div class="item-name">${item.name}</div>
-                        <div class="item-desc">${item.weight || ''}</div>
-                        <div class="item-price">${item.price} грн</div>
-                    </div>
+                    <img src="${item.image}" class="item-img" onerror="this.src='https://via.placeholder.com/150/2d2d2d/ffffff?text=Sushi'">
+                    <div class="item-info"><div class="item-name">${item.name}</div><div class="item-price">${item.price} грн</div></div>
                     <div class="item-controls">
                         ${count > 0 ? `
                             <div class="counter">
-                                <button class="btn-add" onclick="updateCart('${item.name}', ${item.price}, -1)">-</button>
+                                <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, -1)">-</button>
                                 <span>${count}</span>
-                                <button class="btn-add" onclick="updateCart('${item.name}', ${item.price}, 1)">+</button>
+                                <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, 1)">+</button>
                             </div>
-                        ` : `
-                            <button class="btn-add" onclick="updateCart('${item.name}', ${item.price}, 1)">Додати</button>
-                        `}
-                    </div>
-                `;
+                        ` : `<button class="btn-add" onclick="updateCart('${item.name}', ${item.price}, 1)">Додати</button>`}
+                    </div>`;
                 grid.appendChild(card);
             });
         }
 
         function updateCart(name, price, delta) {
-            if (!cart[name]) {
-                cart[name] = { name, price, count: 0 };
-            }
+            if (!cart[name]) cart[name] = { name, price, count: 0 };
             cart[name].count += delta;
             if (cart[name].count <= 0) delete cart[name];
-            
             updateMainButton();
-            // Знаходимо активну категорію та перемальовуємо її
-            const activeCat = document.querySelector('.category-btn.active').innerText;
-            renderMenu(activeCat);
+            renderMenu(document.querySelector('.category-btn.active').innerText);
         }
 
         function updateMainButton() {
             const btn = document.getElementById('main-btn');
             const total = Object.values(cart).reduce((sum, item) => sum + (item.price * item.count), 0);
-            if (total > 0) {
-                btn.style.display = 'block';
-                btn.innerText = `Оформити: ${total} грн`;
-            } else {
-                btn.style.display = 'none';
-            }
+            btn.style.display = total > 0 ? 'block' : 'none';
+            btn.innerText = `Замовити: ${total} грн`;
         }
 
         function sendOrder() {
-            const orderData = Object.values(cart);
-            tg.sendData(JSON.stringify(orderData));
+            tg.sendData(JSON.stringify(Object.values(cart)));
             tg.close();
         }
     </script>
