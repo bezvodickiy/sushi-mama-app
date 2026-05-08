@@ -5,20 +5,20 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sushi Mama</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        /* СУЧАСНИЙ DARK MODE (iOS STYLE) */
         :root {
-            --bg-color: #121212;      /* Насичений чорний фон сторінки */
-            --card-bg: #1e1e1e;       /* Темно-сірі картки */
-            --text-main: #ffffff;      /* Білий основний текст */
-            --text-sub: #a0a0a0;       /* Сірий текст опису */
-            --accent-green: #2ecc71;  /* Світлий, свіжий зелений */
-            --secondary-bg: #2c2c2c;  /* Фон для кнопок категорій */
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-sub: #a0a0a0;
+            --accent-green: #2ecc71;
+            --secondary-bg: #2c2c2c;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -26,10 +26,9 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* ХЕДЕР ТЕМНИЙ */
         .header {
             background-color: var(--card-bg);
-            padding: 10px 20px;
+            padding: 12px 20px;
             text-align: center;
             position: sticky;
             top: 0;
@@ -38,12 +37,13 @@
         }
 
         .header h2 {
+            font-family: 'Cinzel', serif;
             margin: 0;
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--accent-green);
         }
 
-        /* КАТЕГОРІЇ ТЕМНІ (верстка ідентична білій) */
         .categories {
             display: flex;
             overflow-x: auto;
@@ -58,11 +58,13 @@
             padding: 10px 20px;
             background-color: var(--secondary-bg);
             border: none;
-            border-radius: 25px; /* Заокруглення як в білій */
+            border-radius: 25px;
             color: var(--text-sub);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             white-space: nowrap;
-            transition: all 0.2s ease;
         }
 
         .category-btn.active {
@@ -70,51 +72,55 @@
             color: #ffffff;
         }
 
-        /* СПИСОК (верстка ідентична білій) */
         .menu-list {
-            padding: 10px 16px 110px;
+            padding: 10px 16px 120px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
         }
 
-        /* КАРТКА ТЕМНА (заокруглення і структура ідентичні білій) */
         .item-card {
             background-color: var(--card-bg);
-            border-radius: 24px; /* Велике заокруглення iOS style */
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Темна тінь */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
-            border: 1px solid #333; /* Легка межа для чіткості */
+            border: 1px solid #333;
         }
 
         .item-img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
         }
 
-        /* ІНФО-БЛОК (верстка ідентична білій) */
         .item-info {
-            padding: 20px;
+            padding: 25px;
         }
 
+        /* --- СТИЛЬ НАЗВИ ЯК НА ПРИКЛАДІ --- */
         .item-name {
-            font-size: 1.4rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin: 0 0 8px 0;
-            color: var(--accent-green);
+            margin: 0 0 12px 0;
+            color: var(--text-main);
+            text-transform: uppercase; /* Тільки великі літери */
+            letter-spacing: 2px;      /* Відступи між літерами */
+            line-height: 1.3;
+            border-left: 3px solid var(--accent-green); /* Декоративна лінія збоку */
+            padding-left: 12px;
         }
 
         .item-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-sub);
-            margin-bottom: 20px;
-            line-height: 1.4;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            font-style: italic;
         }
 
-        /* ФУТЕР КАРТКИ (верстка ідентична білій) */
         .item-footer {
             display: flex;
             justify-content: space-between;
@@ -122,29 +128,30 @@
         }
 
         .item-price {
-            font-size: 1.3rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--accent-green);
         }
 
-        /* КНОПКА "ДОДАТИ +" (верстка ідентична білій) */
         .btn-add {
             background-color: var(--accent-green);
             color: white;
             border: none;
-            padding: 10px 24px;
-            border-radius: 14px; /* Заокруглення як в білій */
-            font-weight: 600;
-            font-size: 0.95rem;
+            padding: 12px 28px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* ЛІЧИЛЬНИК (верстка ідентична білій) */
         .counter {
             display: flex;
             align-items: center;
             gap: 15px;
             background-color: var(--secondary-bg);
-            padding: 5px 5px 5px 15px;
+            padding: 6px 6px 6px 18px;
             border-radius: 14px;
         }
 
@@ -152,39 +159,39 @@
             background-color: var(--accent-green);
             color: white;
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 10px;
             font-size: 1.2rem;
             font-weight: bold;
         }
 
-        /* ВЕЛИКА КНОПКА ФУТЕРА (верстка ідентична білій) */
         .footer-btn {
             position: fixed;
-            bottom: 25px;
+            bottom: 30px;
             left: 20px;
             right: 20px;
             background-color: var(--accent-green);
             color: white;
             border: none;
-            padding: 18px;
-            border-radius: 18px;
+            padding: 20px;
+            border-radius: 20px;
+            font-family: 'Cinzel', serif;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: none;
             z-index: 2000;
-            box-shadow: 0 10px 25px rgba(46, 204, 113, 0.3);
+            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.3);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
-    <div class="header"><h2>Sushi Mama | Новоукраїнка</h2></div>
+    <div class="header"><h2>Sushi Mama | Меню</h2></div>
     <div id="categories" class="categories"></div>
     <div id="menu-list" class="menu-list"></div>
-    <button id="main-btn" class="footer-btn" onclick="sendOrder()">Оформити замовлення</button>
+    <button id="main-btn" class="footer-btn" onclick="sendOrder()">Замовити</button>
 
     <script>
         let tg = window.Telegram.WebApp;
@@ -192,7 +199,6 @@
         let menuData = {};
         let cart = {};
 
-        // Завантаження меню
         fetch('https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json?v=' + Date.now())
             .then(res => res.json())
             .then(data => {
