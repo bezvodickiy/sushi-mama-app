@@ -3,51 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sushi Mama</title>
+    <title>Sushi Mama Menu</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
+        /* Примусова темна тема, ідентична по структурі */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Темний фон сторінки */
-            color: #ffffff;
+            background-color: #1a1a1a; /* Темний фон сторінки */
+            color: #ffffff; /* Білий текст */
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .header {
-            background-color: #1e1e1e;
+            background-color: #262626; /* Трохи світліше за фон */
             padding: 15px;
             text-align: center;
             border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .header h2 {
             margin: 0;
-            color: #f39c12;
-            font-size: 1.4rem;
+            color: #f39c12; /* Помаранчевий акцент */
+            font-size: 1.3rem;
         }
 
         .categories {
             display: flex;
             overflow-x: auto;
-            padding: 12px;
+            padding: 10px;
             gap: 10px;
-            background-color: #1e1e1e;
+            background-color: #1a1a1a;
             position: sticky;
-            top: 0;
+            top: 55px; /* Під хедером */
             z-index: 1000;
+            scrollbar-width: none;
         }
         .categories::-webkit-scrollbar { display: none; }
 
         .category-btn {
-            padding: 8px 20px;
-            background-color: #2c2c2c;
+            padding: 8px 18px;
+            background-color: #333; /* Темні кнопки */
             border: none;
             border-radius: 20px;
-            color: #bbb;
+            color: #aaa;
             white-space: nowrap;
             font-weight: 600;
+            font-size: 0.85rem;
         }
 
         .category-btn.active {
@@ -55,42 +62,55 @@
             color: #fff;
         }
 
-        /* ОДНА ПОЗИЦІЯ В РЯДКУ (як у старій версії) */
+        /* СПИСОК ПО ОДНОМУ В РЯДКУ (ідентично скріншоту) */
         .menu-list {
             padding: 15px;
             padding-bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .item-card {
-            background-color: #1e1e1e;
+            background-color: #262626; /* Темна картка */
             border-radius: 15px;
-            margin-bottom: 20px;
             overflow: hidden;
+            display: flex;
+            flex-direction: column; /* Вертикальна структура */
             border: 1px solid #333;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .item-img {
             width: 100%;
-            height: 200px; /* Велика картинка на всю ширину */
+            height: 220px; /* Велика картинка зверху */
             object-fit: cover;
         }
 
         .item-details {
             padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .item-name {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 5px;
+            line-height: 1.2;
         }
 
         .item-price {
             color: #f39c12;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 15px;
+        }
+
+        .item-controls {
+            display: flex;
+            justify-content: center;
         }
 
         .btn-add {
@@ -102,15 +122,17 @@
             border-radius: 10px;
             font-weight: bold;
             font-size: 1rem;
+            cursor: pointer;
         }
 
         .counter {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #2c2c2c;
+            width: 100%;
+            background-color: #333;
             border-radius: 10px;
-            padding: 5px;
+            padding: 3px;
         }
 
         .counter-btn {
@@ -120,7 +142,7 @@
             width: 40px;
             height: 40px;
             border-radius: 8px;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
         }
 
@@ -132,21 +154,27 @@
             background-color: #f39c12;
             color: white;
             border: none;
-            padding: 18px;
+            padding: 16px;
             border-radius: 15px;
             font-weight: bold;
             font-size: 1.1rem;
             display: none;
             z-index: 2000;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
-    <div class="header"><h2>Sushi Mama 🍣</h2></div>
+    <div class="header">
+        <h2>Sushi Mama 🍣</h2>
+    </div>
+
     <div id="categories" class="categories"></div>
     <div id="menu-list" class="menu-list"></div>
-    <button id="main-btn" class="footer-btn" onclick="sendOrder()">Кошик порожній</button>
+
+    <button id="main-btn" class="footer-btn" onclick="sendOrder()">
+        Переглянути замовлення
+    </button>
 
     <script>
         let tg = window.Telegram.WebApp;
@@ -154,9 +182,11 @@
         let menuData = {};
         let cart = {};
 
+        // Завантаження меню з твого GitHub
         fetch('https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json?v=' + Math.random())
             .then(res => res.json())
             .then(data => {
+                // Групуємо масив по категоріях
                 menuData = data.reduce((acc, item) => {
                     if (!acc[item.category]) acc[item.category] = [];
                     acc[item.category].push(item);
@@ -185,22 +215,27 @@
         function renderMenu(category) {
             const list = document.getElementById('menu-list');
             list.innerHTML = '';
+            
+            if (!menuData[category]) return;
+
             menuData[category].forEach(item => {
                 const count = cart[item.name] ? cart[item.name].count : 0;
                 const card = document.createElement('div');
                 card.className = 'item-card';
                 card.innerHTML = `
-                    <img src="${item.image}" class="item-img" onerror="this.src='https://via.placeholder.com/400x200/1e1e1e/ffffff?text=Sushi+Mama'">
+                    <img src="${item.image}" class="item-img" onerror="this.src='https://via.placeholder.com/400x200/262626/ffffff?text=Sushi+Mama'">
                     <div class="item-details">
                         <div class="item-name">${item.name}</div>
                         <div class="item-price">${item.price} грн</div>
-                        ${count > 0 ? `
-                            <div class="counter">
-                                <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, -1)">-</button>
-                                <span style="font-size: 1.2rem; font-weight: bold;">${count}</span>
-                                <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, 1)">+</button>
-                            </div>
-                        ` : `<button class="btn-add" onclick="updateCart('${item.name}', ${item.price}, 1)">Додати до кошика</button>`}
+                        <div class="item-controls">
+                            ${count > 0 ? `
+                                <div class="counter">
+                                    <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, -1)">-</button>
+                                    <span style="font-size: 1.1rem; font-weight: bold;">${count}</span>
+                                    <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, 1)">+</button>
+                                </div>
+                            ` : `<button class="btn-add" onclick="updateCart('${item.name}', ${item.price}, 1)">Додати</button>`}
+                        </div>
                     </div>`;
                 list.appendChild(card);
             });
@@ -217,12 +252,8 @@
         function updateMainButton() {
             const btn = document.getElementById('main-btn');
             const total = Object.values(cart).reduce((sum, item) => sum + (item.price * item.count), 0);
-            if (total > 0) {
-                btn.style.display = 'block';
-                btn.innerText = `Замовити: ${total} грн`;
-            } else {
-                btn.style.display = 'none';
-            }
+            btn.style.display = total > 0 ? 'block' : 'none';
+            btn.innerText = `Замовити: ${total} грн`;
         }
 
         function sendOrder() {
