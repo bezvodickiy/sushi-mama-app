@@ -60,70 +60,70 @@
     "name": "Coca-Cola 0.5л",
     "price": 35,
     "description": "Класичний освіжаючий напій. Об'єм: 0.5л",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/coca_cola.jpg"
   },
   {
     "category": "НАПОЇ",
     "name": "Coca-Cola 1л",
     "price": 50,
     "description": "Класичний освіжаючий напій. Об'єм: 1л",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/coca_cola.jpg"
   },
   {
     "category": "НАПОЇ",
     "name": "Fanta 0.5л",
     "price": 35,
     "description": "Напій з яскравим смаком апельсина. Об'єм: 0.5л",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fanta.jpg"
   },
   {
     "category": "НАПОЇ",
     "name": "Fanta 1л",
     "price": 50,
     "description": "Напій з яскравим смаком апельсина. Об'єм: 1л",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fanta.jpg"
   },
   {
     "category": "НАПОЇ",
     "name": "Sprite 0.5л",
     "price": 35,
     "description": "Лимонно-лаймовий напій. Об'єм: 0.5л",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sprite.jpg"
   },
   {
     "category": "НАПОЇ",
     "name": "Sprite 1л",
     "price": 50,
     "description": "Лимонно-лаймовий напій. Об'єм: 1л",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sprite.jpg"
   },
   {
     "category": "НАПОЇ",
-    "name": "Сік Rich в асортименті 1л",
-    "price": 75,
+    "name": "Сік в асортименті 200мл",
+    "price": 25,
+    "description": "Якісний фруктовий сік (смак уточнюйте у оператора). Об'єм: 200мл",
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sok.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Сік в асортименті 1л",
+    "price": 100,
     "description": "Якісний фруктовий сік (смак уточнюйте у оператора). Об'єм: 1л",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sok.jpg"
   },
   {
     "category": "НАПОЇ",
     "name": "Вода Bonaqua (газована/без газу) 0.5л",
-    "price": 25,
+    "price": 20,
     "description": "Питна вода Bonaqua. Об'єм: 0.5л",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/bonaqua.jpg"
   },
   {
     "category": "НАПОЇ",
-    "name": "Burn (енергетичний напій)",
-    "price": 60,
-    "description": "Енергетичний напій для бадьорості.",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
-  },
-  {
-    "category": "НАПОЇ",
-    "name": "Фузе Ті (холодний чай)",
-    "price": 40,
+    "name": "Холодний чай",
+    "price": 35,
     "description": "Холодний чай з різними смаками. Об'єм: 0.5л",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fuze_tea.jpg"
   },
   {
     "category": "ПІЦА",
@@ -151,14 +151,14 @@
     "name": "Піца Гавайська",
     "price": 315,
     "description": "ананас, помідор, куряче філе, моцарела, пармезан, томатний соус. Вага: 850г",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/pizza.jpg"
   },
   {
     "category": "ПІЦА",
     "name": "Піца Маргарита",
     "price": 250,
     "description": "Соус томатний, подвійна моцарела, томати, базилік. Вага: 850г",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/pizza.jpg"
   },
   {
     "category": "ПІЦА",
@@ -172,7 +172,7 @@
     "name": "Піца Пепероні",
     "price": 315,
     "description": "Соус томатний, моцарела, салямі пепероні, чилі. Вага: 850г",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/photo_coming_soon.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/pizza.jpg"
   },
   {
     "category": "РОЛИ",
