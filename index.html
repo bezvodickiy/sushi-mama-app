@@ -3,38 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sushi Mama Menu</title>
+    <title>Sushi Mama</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
+        /* Темна тема */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0; padding: 0;
-            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1c; /* Глибокий темний */
             color: #ffffff;
             user-select: none;
         }
-        .header { background: #2d2d2d; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-        .categories { display: flex; overflow-x: auto; padding: 10px; gap: 8px; background: #252525; scrollbar-width: none; }
-        .category-btn { padding: 8px 15px; background: #3d3d3d; border: none; border-radius: 20px; color: white; white-space: nowrap; }
-        .category-btn.active { background: #e67e22; }
-        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; padding-bottom: 90px; }
-        .item-card { background: #2d2d2d; border-radius: 12px; overflow: hidden; border: 1px solid #3d3d3d; display: flex; flex-direction: column; }
-        .item-img { width: 100%; height: 110px; object-fit: cover; }
-        .item-info { padding: 8px; flex-grow: 1; }
-        .item-name { font-size: 0.85rem; font-weight: bold; height: 2.2rem; overflow: hidden; }
-        .item-price { color: #e67e22; font-weight: bold; margin-top: 5px; }
-        .item-controls { padding: 8px; background: #353535; }
-        .btn-add { width: 100%; background: #e67e22; color: white; border: none; padding: 8px; border-radius: 8px; font-weight: bold; }
-        .counter { display: flex; align-items: center; justify-content: space-between; background: #3d3d3d; border-radius: 8px; padding: 4px; }
-        .counter-btn { background: none; border: none; color: white; font-size: 1.2rem; width: 30px; height: 30px; }
-        .footer-btn { position: fixed; bottom: 20px; left: 20px; right: 20px; background: #e67e22; color: white; border: none; padding: 16px; border-radius: 14px; font-weight: bold; display: none; z-index: 1000; }
+
+        .header {
+            background-color: #262626;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .header h2 {
+            margin: 0;
+            color: #f39c12;
+            font-size: 1.4rem;
+        }
+
+        .categories {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px;
+            gap: 10px;
+            background-color: #262626;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .categories::-webkit-scrollbar { display: none; }
+
+        .category-btn {
+            padding: 8px 16px;
+            background-color: #333;
+            border: none;
+            border-radius: 12px;
+            color: #bbb;
+            white-space: nowrap;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .category-btn.active {
+            background-color: #f39c12;
+            color: #fff;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 10px;
+            padding-bottom: 100px;
+        }
+
+        .item-card {
+            background-color: #262626;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .item-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .item-info {
+            padding: 10px;
+            flex-grow: 1;
+        }
+
+        .item-name {
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            min-height: 2.2rem;
+        }
+
+        .item-price {
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .btn-add {
+            width: 100%;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .counter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            border-radius: 8px;
+            padding: 2px;
+        }
+
+        .counter-btn {
+            background-color: #f39c12;
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .footer-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: none;
+            z-index: 2000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
-    <div class="header"><h2 style="margin:0; color: #e67e22;">Sushi Mama 🍣</h2></div>
+    <div class="header">
+        <h2>Sushi Mama 🍣</h2>
+    </div>
+
     <div id="categories" class="categories"></div>
     <div id="menu-grid" class="menu-grid"></div>
-    <button id="main-btn" class="footer-btn" onclick="sendOrder()">Замовити</button>
+
+    <button id="main-btn" class="footer-btn" onclick="sendOrder()">
+        Додати до замовлення
+    </button>
 
     <script>
         let tg = window.Telegram.WebApp;
@@ -42,6 +169,7 @@
         let menuData = {};
         let cart = {};
 
+        // Пряме посилання на твій JSON
         fetch('https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json')
             .then(res => res.json())
             .then(data => {
@@ -52,11 +180,11 @@
                 }, {});
                 renderCategories();
                 renderMenu(Object.keys(menuData)[0]);
-            })
-            .catch(err => { document.getElementById('menu-grid').innerHTML = 'Помилка завантаження...'; });
+            });
 
         function renderCategories() {
             const container = document.getElementById('categories');
+            container.innerHTML = '';
             Object.keys(menuData).forEach((cat, index) => {
                 const btn = document.createElement('button');
                 btn.className = `category-btn ${index === 0 ? 'active' : ''}`;
@@ -78,9 +206,10 @@
                 const card = document.createElement('div');
                 card.className = 'item-card';
                 card.innerHTML = `
-                    <img src="${item.image}" class="item-img" onerror="this.src='https://via.placeholder.com/150/2d2d2d/ffffff?text=Sushi'">
-                    <div class="item-info"><div class="item-name">${item.name}</div><div class="item-price">${item.price} грн</div></div>
-                    <div class="item-controls">
+                    <img src="${item.image}" class="item-img" onerror="this.src='https://via.placeholder.com/150/333/fff?text=Sushi'">
+                    <div class="item-info">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-price">${item.price} грн</div>
                         ${count > 0 ? `
                             <div class="counter">
                                 <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, -1)">-</button>
@@ -105,7 +234,7 @@
             const btn = document.getElementById('main-btn');
             const total = Object.values(cart).reduce((sum, item) => sum + (item.price * item.count), 0);
             btn.style.display = total > 0 ? 'block' : 'none';
-            btn.innerText = `Замовити: ${total} грн`;
+            btn.innerText = `Додати до замовлення: ${total} грн`;
         }
 
         function sendOrder() {
