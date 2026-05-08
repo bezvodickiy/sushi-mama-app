@@ -56,70 +56,70 @@
     "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/img/zapech_rolls/zapecheni_spaysi.jpg"
   },
   {
-    "category": "НАПОЇ",
+    "category": "Холодні НАПОЇ",
     "name": "Coca-Cola 0.5л",
     "price": 35,
     "description": "Класичний освіжаючий напій. Об'єм: 0.5л",
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/coca_cola.jpg"
   },
   {
-    "category": "НАПОЇ",
+    "category": "Холодні НАПОЇ",
     "name": "Coca-Cola 1л",
     "price": 50,
     "description": "Класичний освіжаючий напій. Об'єм: 1л",
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/coca_cola.jpg"
   },
   {
-    "category": "НАПОЇ",
+    "category": "Холодні НАПОЇ",
     "name": "Fanta 0.5л",
     "price": 35,
     "description": "Напій з яскравим смаком апельсина. Об'єм: 0.5л",
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fanta.jpg"
   },
   {
-    "category": "НАПОЇ",
+    "category": "Холодні НАПОЇ",
     "name": "Fanta 1л",
     "price": 50,
     "description": "Напій з яскравим смаком апельсина. Об'єм: 1л",
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fanta.jpg"
   },
   {
-    "category": "НАПОЇ",
+    "category": "Холодні НАПОЇ",
     "name": "Sprite 0.5л",
     "price": 35,
     "description": "Лимонно-лаймовий напій. Об'єм: 0.5л",
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sprite.jpg"
   },
   {
-    "category": "НАПОЇ",
+    "category": "Холодні НАПОЇ",
     "name": "Sprite 1л",
     "price": 50,
     "description": "Лимонно-лаймовий напій. Об'єм: 1л",
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sprite.jpg"
   },
   {
-    "category": "НАПОЇ",
+    "category": "Холодні НАПОЇ",
     "name": "Сік в асортименті 200мл",
     "price": 25,
     "description": "Якісний фруктовий сік (смак уточнюйте у оператора). Об'єм: 200мл",
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sok.jpg"
   },
   {
-    "category": "НАПОЇ",
+    "category": "Холодні НАПОЇ",
     "name": "Сік в асортименті 1л",
     "price": 100,
     "description": "Якісний фруктовий сік (смак уточнюйте у оператора). Об'єм: 1л",
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sok.jpg"
   },
   {
-    "category": "НАПОЇ",
+    "category": "Холодні НАПОЇ",
     "name": "Вода Bonaqua (газована/без газу) 0.5л",
     "price": 20,
     "description": "Питна вода Bonaqua. Об'єм: 0.5л",
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/bonaqua.jpg"
   },
   {
-    "category": "НАПОЇ",
+    "category": "Холодні НАПОЇ",
     "name": "Холодний чай",
     "price": 35,
     "description": "Холодний чай з різними смаками. Об'єм: 0.5л",
@@ -196,6 +196,55 @@
     "name": "Іспанський крем XL",
     "price": 35,
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+   {
+    "category": "КОКТЕЙЛІ",
+    "name": "Полуничний настрій",
+    "price": 85,
+    "description": "спрайт, еспресо, апельсиновий сік, сироп полуничний. Об'єм: 500мл",
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
+  },
+   {
+    "category": "КОКТЕЙЛІ",
+    "name": "Енергетичне Амбре",
+    "price": 80,
+    "description": "енергетик, ананасовий сік, сироп блю кюрасао. Об'єм: 500мл",
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
+  },
+   {
+    "category": "КОКТЕЙЛІ",
+    "name": "Яблучний бум",
+    "price": 80,
+    "description": "спрайт, сік яблучний, сироп зелене яблуко. Об'єм: 500мл",
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
+  },
+   {
+    "category": "КОКТЕЙЛІ",
+    "name": "Дон Япон",
+    "price": 80,
+    "description": "сік яблучний, сік персиковий, сироп гранатовий, сік лайма. Об'єм: 500мл",
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
+  },
+   {
+    "category": "КОКТЕЙЛІ",
+    "name": "Ейфорія",
+    "price": 80,
+    "description": "енергетик, сік апельсиновий, сироп зелений банан. Об'єм: 500мл",
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
+  },
+   {
+    "category": "КОКТЕЙЛІ",
+    "name": "Шрек",
+    "price": 80,
+    "description": "спрайт, сік апельсиновий, сироп блю кюрасао, сік лайма. Об'єм: 500мл",
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
+  },
+   {
+    "category": "КОКТЕЙЛІ",
+    "name": "Джміль",
+    "price": 80,
+    "description": "апельсиновий сік, сироп солона карамель, подвійне еспресо. Об'єм: 500мл",
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
   },
   {
     "category": "ПІЦА",
