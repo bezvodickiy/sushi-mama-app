@@ -3,30 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sushi Mama</title>
+    <title>Sushi Mama WebApp</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        /* Темна тема */
+        /* Примусова темна тема */
+        :root {
+            --bg-color: #1a1a1a;
+            --card-bg: #262626;
+            --text-color: #ffffff;
+            --accent-color: #f39c12;
+            --secondary-bg: #333333;
+        }
+
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, system-ui, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1c1c1c; /* Глибокий темний */
-            color: #ffffff;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .header {
-            background-color: #262626;
+            background-color: var(--card-bg);
             padding: 15px;
             text-align: center;
             border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .header h2 {
             margin: 0;
-            color: #f39c12;
-            font-size: 1.4rem;
+            color: var(--accent-color);
+            font-size: 1.2rem;
         }
 
         .categories {
@@ -34,28 +46,25 @@
             overflow-x: auto;
             padding: 10px;
             gap: 10px;
-            background-color: #262626;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background-color: var(--bg-color);
+            scrollbar-width: none;
         }
-
         .categories::-webkit-scrollbar { display: none; }
 
         .category-btn {
             padding: 8px 16px;
-            background-color: #333;
+            background-color: var(--secondary-bg);
             border: none;
-            border-radius: 12px;
-            color: #bbb;
+            border-radius: 10px;
+            color: #aaa;
             white-space: nowrap;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         .category-btn.active {
-            background-color: #f39c12;
-            color: #fff;
+            background-color: var(--accent-color);
+            color: white;
         }
 
         .menu-grid {
@@ -67,12 +76,12 @@
         }
 
         .item-card {
-            background-color: #262626;
+            background-color: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid #333;
         }
 
         .item-img {
@@ -87,29 +96,31 @@
         }
 
         .item-name {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: bold;
-            margin-bottom: 10px;
-            line-height: 1.2;
-            min-height: 2.2rem;
+            margin-bottom: 8px;
+            height: 2.2rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
         .item-price {
-            color: #f39c12;
+            color: var(--accent-color);
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 10px;
         }
 
         .btn-add {
             width: 100%;
-            background-color: #f39c12;
+            background-color: var(--accent-color);
             color: white;
             border: none;
             padding: 10px;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 0.9rem;
             cursor: pointer;
         }
 
@@ -117,18 +128,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #333;
+            background-color: var(--secondary-bg);
             border-radius: 8px;
-            padding: 2px;
+            overflow: hidden;
         }
 
         .counter-btn {
-            background-color: #f39c12;
+            background-color: var(--accent-color);
             border: none;
             color: white;
             width: 35px;
             height: 35px;
-            border-radius: 6px;
             font-size: 1.2rem;
             font-weight: bold;
         }
@@ -138,30 +148,24 @@
             bottom: 20px;
             left: 20px;
             right: 20px;
-            background-color: #f39c12;
+            background-color: var(--accent-color);
             color: white;
             border: none;
             padding: 16px;
-            border-radius: 12px;
-            font-size: 1.1rem;
+            border-radius: 15px;
+            font-size: 1rem;
             font-weight: bold;
             display: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             z-index: 2000;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h2>Sushi Mama 🍣</h2>
-    </div>
-
+    <div class="header"><h2>Sushi Mama 🍣</h2></div>
     <div id="categories" class="categories"></div>
     <div id="menu-grid" class="menu-grid"></div>
-
-    <button id="main-btn" class="footer-btn" onclick="sendOrder()">
-        Додати до замовлення
-    </button>
+    <button id="main-btn" class="footer-btn" onclick="sendOrder()">Замовити</button>
 
     <script>
         let tg = window.Telegram.WebApp;
@@ -169,8 +173,8 @@
         let menuData = {};
         let cart = {};
 
-        // Пряме посилання на твій JSON
-        fetch('https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json')
+        // Додаємо випадкове число до посилання, щоб GitHub не видавав старий файл з кешу
+        fetch('https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json?nocache=' + Math.random())
             .then(res => res.json())
             .then(data => {
                 menuData = data.reduce((acc, item) => {
@@ -206,7 +210,7 @@
                 const card = document.createElement('div');
                 card.className = 'item-card';
                 card.innerHTML = `
-                    <img src="${item.image}" class="item-img" onerror="this.src='https://via.placeholder.com/150/333/fff?text=Sushi'">
+                    <img src="${item.image}" class="item-img" onerror="this.src='https://via.placeholder.com/150/262626/ffffff?text=Mama+Sushi'">
                     <div class="item-info">
                         <div class="item-name">${item.name}</div>
                         <div class="item-price">${item.price} грн</div>
@@ -234,7 +238,7 @@
             const btn = document.getElementById('main-btn');
             const total = Object.values(cart).reduce((sum, item) => sum + (item.price * item.count), 0);
             btn.style.display = total > 0 ? 'block' : 'none';
-            btn.innerText = `Додати до замовлення: ${total} грн`;
+            btn.innerText = `Оформити замовлення: ${total} грн`;
         }
 
         function sendOrder() {
