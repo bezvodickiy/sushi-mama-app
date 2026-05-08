@@ -125,6 +125,78 @@
     "description": "Холодний чай з різними смаками. Об'єм: 0.5л",
     "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fuze_tea.jpg"
   },
+    {
+    "category": "НАПОЇ",
+    "name": "Еспресо",
+    "price": 20,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Еспресо з молоком",
+    "price": 25,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Американо",
+    "price": 25,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Американо з молоком",
+    "price": 30,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Шоколад",
+    "price": 30,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Шоколад з молоком",
+    "price": 35,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Капучино",
+    "price": 35,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Лате",
+    "price": 35,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Айріш віскі",
+    "price": 30,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Айріш віскі з молоком",
+    "price": 35,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Іспанський крем",
+    "price": 25,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
+  {
+    "category": "НАПОЇ",
+    "name": "Іспанський крем XL",
+    "price": 35,
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
+  },
   {
     "category": "ПІЦА",
     "name": "Піца Мексиканська",
