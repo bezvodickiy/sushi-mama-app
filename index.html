@@ -2,179 +2,155 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sushi Mama Menu</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        /* Примусова темна тема, ідентична по структурі */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1a1a1a; /* Темний фон сторінки */
-            color: #ffffff; /* Білий текст */
+            margin: 0; padding: 0;
+            background-color: #1a1a1a !important;
+            color: #ffffff !important;
             user-select: none;
-            -webkit-tap-highlight-color: transparent;
         }
 
         .header {
-            background-color: #262626; /* Трохи світліше за фон */
+            background-color: #262626;
             padding: 15px;
             text-align: center;
-            border-bottom: 1px solid #333;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            border-bottom: 2px solid #2ecc71; /* Зелена лінія знизу */
         }
 
         .header h2 {
             margin: 0;
-            color: #f39c12; /* Помаранчевий акцент */
+            color: #2ecc71; /* Наш новий світло-зелений */
             font-size: 1.3rem;
         }
 
         .categories {
             display: flex;
             overflow-x: auto;
-            padding: 10px;
+            padding: 12px;
             gap: 10px;
             background-color: #1a1a1a;
             position: sticky;
-            top: 55px; /* Під хедером */
+            top: 0;
             z-index: 1000;
-            scrollbar-width: none;
         }
         .categories::-webkit-scrollbar { display: none; }
 
         .category-btn {
-            padding: 8px 18px;
-            background-color: #333; /* Темні кнопки */
+            padding: 8px 20px;
+            background-color: #333;
             border: none;
             border-radius: 20px;
             color: #aaa;
             white-space: nowrap;
             font-weight: 600;
-            font-size: 0.85rem;
         }
 
         .category-btn.active {
-            background-color: #f39c12;
+            background-color: #2ecc71;
             color: #fff;
         }
 
-        /* СПИСОК ПО ОДНОМУ В РЯДКУ (ідентично скріншоту) */
         .menu-list {
             padding: 15px;
-            padding-bottom: 100px;
+            padding-bottom: 110px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
 
         .item-card {
-            background-color: #262626; /* Темна картка */
-            border-radius: 15px;
+            background-color: #262626;
+            border-radius: 18px;
             overflow: hidden;
             display: flex;
-            flex-direction: column; /* Вертикальна структура */
+            flex-direction: column;
             border: 1px solid #333;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         .item-img {
             width: 100%;
-            height: 220px; /* Велика картинка зверху */
+            height: 240px;
             object-fit: cover;
         }
 
         .item-details {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 18px;
         }
 
         .item-name {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            margin-bottom: 5px;
-            line-height: 1.2;
+            margin-bottom: 8px;
         }
 
         .item-price {
-            color: #f39c12;
-            font-size: 1.2rem;
-            font-weight: bold;
+            color: #2ecc71;
+            font-size: 1.3rem;
+            font-weight: 800;
             margin-bottom: 15px;
-        }
-
-        .item-controls {
-            display: flex;
-            justify-content: center;
         }
 
         .btn-add {
             width: 100%;
-            background-color: #f39c12;
+            background-color: #2ecc71;
             color: white;
             border: none;
-            padding: 12px;
-            border-radius: 10px;
+            padding: 14px;
+            border-radius: 12px;
             font-weight: bold;
             font-size: 1rem;
-            cursor: pointer;
         }
 
         .counter {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
             background-color: #333;
-            border-radius: 10px;
-            padding: 3px;
+            border-radius: 12px;
+            padding: 4px;
         }
 
         .counter-btn {
-            background-color: #f39c12;
+            background-color: #2ecc71;
             border: none;
             color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
             font-size: 1.4rem;
             font-weight: bold;
         }
 
         .footer-btn {
             position: fixed;
-            bottom: 20px;
+            bottom: 25px;
             left: 20px;
             right: 20px;
-            background-color: #f39c12;
+            background-color: #2ecc71;
             color: white;
             border: none;
-            padding: 16px;
-            border-radius: 15px;
+            padding: 18px;
+            border-radius: 16px;
             font-weight: bold;
             font-size: 1.1rem;
             display: none;
             z-index: 2000;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h2>Sushi Mama 🍣</h2>
-    </div>
-
+    <div class="header"><h2>Sushi Mama 🍣</h2></div>
     <div id="categories" class="categories"></div>
     <div id="menu-list" class="menu-list"></div>
-
-    <button id="main-btn" class="footer-btn" onclick="sendOrder()">
-        Переглянути замовлення
-    </button>
+    <button id="main-btn" class="footer-btn" onclick="sendOrder()">Замовити</button>
 
     <script>
         let tg = window.Telegram.WebApp;
@@ -182,11 +158,10 @@
         let menuData = {};
         let cart = {};
 
-        // Завантаження меню з твого GitHub
-        fetch('https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json?v=' + Math.random())
+        // Завантаження даних з випадковим параметром для ігнорування кешу файлу
+        fetch('https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json?nocache=' + Date.now())
             .then(res => res.json())
             .then(data => {
-                // Групуємо масив по категоріях
                 menuData = data.reduce((acc, item) => {
                     if (!acc[item.category]) acc[item.category] = [];
                     acc[item.category].push(item);
@@ -215,9 +190,6 @@
         function renderMenu(category) {
             const list = document.getElementById('menu-list');
             list.innerHTML = '';
-            
-            if (!menuData[category]) return;
-
             menuData[category].forEach(item => {
                 const count = cart[item.name] ? cart[item.name].count : 0;
                 const card = document.createElement('div');
@@ -227,15 +199,13 @@
                     <div class="item-details">
                         <div class="item-name">${item.name}</div>
                         <div class="item-price">${item.price} грн</div>
-                        <div class="item-controls">
-                            ${count > 0 ? `
-                                <div class="counter">
-                                    <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, -1)">-</button>
-                                    <span style="font-size: 1.1rem; font-weight: bold;">${count}</span>
-                                    <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, 1)">+</button>
-                                </div>
-                            ` : `<button class="btn-add" onclick="updateCart('${item.name}', ${item.price}, 1)">Додати</button>`}
-                        </div>
+                        ${count > 0 ? `
+                            <div class="counter">
+                                <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, -1)">-</button>
+                                <span style="font-size: 1.2rem; font-weight: bold;">${count}</span>
+                                <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, 1)">+</button>
+                            </div>
+                        ` : `<button class="btn-add" onclick="updateCart('${item.name}', ${item.price}, 1)">Додати</button>`}
                     </div>`;
                 list.appendChild(card);
             });
@@ -253,7 +223,7 @@
             const btn = document.getElementById('main-btn');
             const total = Object.values(cart).reduce((sum, item) => sum + (item.price * item.count), 0);
             btn.style.display = total > 0 ? 'block' : 'none';
-            btn.innerText = `Замовити: ${total} грн`;
+            btn.innerText = `Замовити на суму: ${total} грн`;
         }
 
         function sendOrder() {
