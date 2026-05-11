@@ -13,7 +13,7 @@
             --card-bg: #171717;
             --text-main: #ffffff;
             --text-sub: #8a8a8a;
-            --accent-emerald: #004d33; /* Смарагдовий */
+            --accent-emerald: #004d33;
             --light-emerald: #006644;
             --border-color: #262626;
         }
@@ -103,7 +103,6 @@
             padding: 25px 20px;
         }
 
-        /* --- НАЗВА ТЕПЕР ТИМ САМИМ ШРИФТОМ CINZEL --- */
         .item-name {
             font-family: 'Cinzel', serif;
             font-size: 1.2rem;
@@ -144,7 +143,7 @@
             border: none;
             padding: 12px 25px;
             border-radius: 2px;
-            font-family: 'Cinzel', serif; /* Також Cinzel для кнопок */
+            font-family: 'Cinzel', serif;
             font-weight: 700;
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -202,17 +201,35 @@
         let menuData = {};
         let cart = {};
 
-        fetch('https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json?v=' + Date.now())
-            .then(res => res.json())
-            .then(data => {
-                menuData = data.reduce((acc, item) => {
-                    if (!acc[item.category]) acc[item.category] = [];
-                    acc[item.category].push(item);
-                    return acc;
-                }, {});
-                renderCategories();
-                renderMenu(Object.keys(menuData)[0]);
-            });
+        // 1. Спробуємо завантажити дані з локального сервера (твого ноута)
+        // 2. Якщо помилка (сервер вимкнено), беремо з Гітхабу
+        async function loadMenu() {
+            const localApi = 'http://localhost:8080/api/menu';
+            const githubApi = 'https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json?v=' + Date.now();
+
+            try {
+                const response = await fetch(localApi);
+                if (!response.ok) throw new Error('Local server not responding');
+                const data = await response.json();
+                processMenu(data);
+                console.log("Дані завантажено з локального сервера");
+            } catch (err) {
+                console.log("Локальний сервер недоступний, завантажую з GitHub");
+                fetch(githubApi)
+                    .then(res => res.json())
+                    .then(data => processMenu(data));
+            }
+        }
+
+        function processMenu(data) {
+            menuData = data.reduce((acc, item) => {
+                if (!acc[item.category]) acc[item.category] = [];
+                acc[item.category].push(item);
+                return acc;
+            }, {});
+            renderCategories();
+            renderMenu(Object.keys(menuData)[0]);
+        }
 
         function renderCategories() {
             const container = document.getElementById('categories');
@@ -278,6 +295,9 @@
             tg.sendData(JSON.stringify(Object.values(cart)));
             tg.close();
         }
+
+        // Запуск завантаження
+        loadMenu();
     </script>
 </body>
 </html>
