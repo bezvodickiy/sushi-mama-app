@@ -501,21 +501,21 @@
     "name": "Піца Гавайська",
     "price": 315,
     "description": "ананас, помідор, куряче філе, моцарела, пармезан, томатний соус. Вага: 850г",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/pizza.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/pizza_gavai.jpg"
   },
   {
     "category": "ПІЦА",
     "name": "Піца Маргарита",
     "price": 250,
     "description": "Соус томатний, подвійна моцарела, томати, базилік. Вага: 850г",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/pizza.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/pizza_margarita.jpg"
   },
   {
     "category": "ПІЦА",
     "name": "Піца Пепероні",
     "price": 315,
     "description": "Соус томатний, моцарела, салямі пепероні, чилі. Вага: 850г",
-    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/pizza.jpg"
+    "image": "https://bezvodickiy.github.io/sushi-mama-app/img/pizza/pizza_paperoni.jpg"
   },
   {
     "category": "ФАСТ ФУД",
