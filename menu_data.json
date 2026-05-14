@@ -757,13 +757,5 @@
         "category": "КОКТЕЙЛІ",
         "description": "",
         "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_1008_1778762947.jpg"
-    },
-    {
-        "id": 9688,
-        "name": "Huy",
-        "price": 138,
-        "category": "ПІЦА",
-        "description": "555555",
-        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_9688_1778765368.jpg"
     }
 ]
