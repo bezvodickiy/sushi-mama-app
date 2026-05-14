@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sushi Mama</title>
+    <title>Sushi Mama Premium</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
@@ -25,6 +25,7 @@
             color: var(--text-main);
             user-select: none;
             -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
         }
 
         .header {
@@ -53,6 +54,9 @@
             gap: 10px;
             background-color: var(--bg-color);
             scrollbar-width: none;
+            position: sticky;
+            top: 52px;
+            z-index: 90;
         }
         .categories::-webkit-scrollbar { display: none; }
 
@@ -67,6 +71,7 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             white-space: nowrap;
+            transition: 0.3s;
         }
 
         .category-btn.active {
@@ -76,7 +81,7 @@
         }
 
         .menu-list {
-            padding: 10px 16px 120px;
+            padding: 10px 16px 140px;
             display: flex;
             flex-direction: column;
             gap: 25px;
@@ -84,42 +89,41 @@
 
         .item-card {
             background-color: var(--card-bg);
-            border-radius: 0;
+            border-radius: 8px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             border: 1px solid var(--border-color);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
         .item-img {
             width: 100%;
             height: 230px;
             object-fit: cover;
-            filter: brightness(0.85);
+            filter: brightness(0.9);
+            background-color: #222;
         }
 
         .item-info {
-            padding: 25px 20px;
+            padding: 20px;
         }
 
         .item-name {
             font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin: 0 0 15px 0;
+            margin: 0 0 10px 0;
             color: var(--text-main);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            line-height: 1.4;
+            letter-spacing: 1.5px;
         }
 
         .item-desc {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-sub);
-            margin: 0 0 25px 0;
-            line-height: 1.6;
-            font-weight: 300;
+            margin: 0 0 20px 0;
+            line-height: 1.5;
         }
 
         .item-footer {
@@ -127,65 +131,68 @@
             justify-content: space-between;
             align-items: center;
             border-top: 1px solid var(--border-color);
-            padding-top: 20px;
+            padding-top: 15px;
         }
 
         .item-price {
             font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            color: var(--text-main);
         }
 
         .btn-add {
             background: linear-gradient(135deg, var(--accent-emerald), var(--light-emerald));
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 2px;
+            padding: 10px 20px;
+            border-radius: 4px;
             font-family: 'Cinzel', serif;
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            cursor: pointer;
         }
 
         .counter {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             background-color: #222;
-            padding: 5px;
-            border-radius: 4px;
+            padding: 4px;
+            border-radius: 6px;
         }
 
         .counter-btn {
             background-color: var(--accent-emerald);
             color: white;
             border: none;
-            width: 38px;
-            height: 38px;
-            font-size: 1.2rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .footer-btn {
             position: fixed;
-            bottom: 30px;
-            left: 20px;
-            right: 20px;
+            bottom: 25px;
+            left: 15px;
+            right: 15px;
             background: linear-gradient(135deg, var(--accent-emerald), var(--light-emerald));
             color: white;
             border: none;
-            padding: 20px;
-            border-radius: 4px;
+            padding: 18px;
+            border-radius: 8px;
             font-family: 'Cinzel', serif;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1rem;
             display: none;
-            z-index: 2000;
-            box-shadow: 0 10px 30px rgba(0, 77, 51, 0.4);
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -193,42 +200,51 @@
     <div class="header"><h2>Sushi Mama</h2></div>
     <div id="categories" class="categories"></div>
     <div id="menu-list" class="menu-list"></div>
-    <button id="main-btn" class="footer-btn" onclick="sendOrder()">Замовити</button>
+    <button id="main-btn" class="footer-btn" onclick="sendOrder()">Оформити</button>
 
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand();
         let menuData = {};
         let cart = {};
+        let currentCategory = "";
 
-        // 1. Спробуємо завантажити дані з локального сервера (твого ноута)
-        // 2. Якщо помилка (сервер вимкнено), беремо з Гітхабу
         async function loadMenu() {
-            const localApi = 'http://localhost:8080/api/menu';
-            const githubApi = 'https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/menu_data.json?v=' + Date.now();
-
             try {
-                const response = await fetch(localApi);
-                if (!response.ok) throw new Error('Local server not responding');
+                // Додаємо випадкове число до посилання, щоб скинути жорсткий кеш GitHub Raw
+                const cacheBuster = `?v=${Math.floor(Math.random() * 99999)}`;
+                const githubUrl = 'https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/refs/heads/main/menu_data.json' + cacheBuster;
+                
+                const response = await fetch(githubUrl);
+                if (!response.ok) throw new Error('GitHub Fetch Failed');
                 const data = await response.json();
                 processMenu(data);
-                console.log("Дані завантажено з локального сервера");
             } catch (err) {
-                console.log("Локальний сервер недоступний, завантажую з GitHub");
-                fetch(githubApi)
-                    .then(res => res.json())
-                    .then(data => processMenu(data));
+                console.warn("GitHub недоступний, пробуємо локальний API:", err);
+                try {
+                    // Резервний варіант (локальний сервер бекенду)
+                    const response = await fetch('/api/menu');
+                    if (!response.ok) throw new Error('API Error');
+                    const data = await response.json();
+                    processMenu(data);
+                } catch (localErr) {
+                    console.error("Критична помилка завантаження меню:", localErr);
+                    document.getElementById('menu-list').innerHTML = '<p style="text-align:center;color:red;padding:20px;">Помилка завантаження меню. Спробуйте пізніше.</p>';
+                }
             }
         }
 
         function processMenu(data) {
             menuData = data.reduce((acc, item) => {
-                if (!acc[item.category]) acc[item.category] = [];
-                acc[item.category].push(item);
+                const cat = item.category || 'Інше';
+                if (!acc[cat]) acc[cat] = [];
+                acc[cat].push(item);
                 return acc;
             }, {});
+            
             renderCategories();
-            renderMenu(Object.keys(menuData)[0]);
+            const cats = Object.keys(menuData);
+            if (cats.length > 0) renderMenu(cats[0]);
         }
 
         function renderCategories() {
@@ -238,9 +254,9 @@
                 const btn = document.createElement('button');
                 btn.className = `category-btn ${index === 0 ? 'active' : ''}`;
                 btn.innerText = cat;
-                btn.onclick = (e) => {
+                btn.onclick = () => {
                     document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-                    e.target.classList.add('active');
+                    btn.classList.add('active');
                     renderMenu(cat);
                 };
                 container.appendChild(btn);
@@ -248,50 +264,83 @@
         }
 
         function renderMenu(category) {
+            currentCategory = category;
             const list = document.getElementById('menu-list');
             list.innerHTML = '';
+            
             if (!menuData[category]) return;
 
             menuData[category].forEach(item => {
-                const count = cart[item.name] ? cart[item.name].count : 0;
                 const card = document.createElement('div');
                 card.className = 'item-card';
+                
+                // Перевірка коректності посилань на фото
+                let imgSrc = item.image_url || item.image;
+                if (imgSrc && !imgSrc.startsWith('http')) {
+                    imgSrc = imgSrc.startsWith('/') ? imgSrc : '/' + imgSrc;
+                }
+
+                // Генеруємо безпечний ID для HTML-елементів керування кількістю
+                const elementId = item.id || item.name.replace(/\s+/g, '');
+
                 card.innerHTML = `
-                    <img src="${item.image}" class="item-img" onerror="this.src='https://via.placeholder.com/400x230/171717/333333?text=Sushi+Mama'">
+                    <img src="${imgSrc}" class="item-img" onerror="this.src='https://via.placeholder.com/400x230?text=Sushi+Mama'">
                     <div class="item-info">
                         <div class="item-name">${item.name}</div>
-                        <div class="item-desc">${item.description || 'Premium taste experience'}</div>
+                        <div class="item-desc">${item.description || ''}</div>
                         <div class="item-footer">
-                            <div class="item-price">${item.price} грн</div>
-                            ${count > 0 ? `
-                                <div class="counter">
-                                    <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, -1)">-</button>
-                                    <span style="font-weight: 700; color:white;">${count}</span>
-                                    <button class="counter-btn" onclick="updateCart('${item.name}', ${item.price}, 1)">+</button>
-                                </div>
-                            ` : `<button class="btn-add" onclick="updateCart('${item.name}', ${item.price}, 1)">Додати</button>`}
+                            <div class="item-price">${item.price} ₴</div>
+                            <div id="controls-${elementId}">
+                                ${renderControls(item)}
+                            </div>
                         </div>
                     </div>`;
                 list.appendChild(card);
             });
         }
 
-        function updateCart(name, price, delta) {
+        function renderControls(item) {
+            const count = cart[item.name] ? cart[item.name].count : 0;
+            const elementId = item.id || item.name.replace(/\s+/g, '');
+            const safeName = item.name.replace(/'/g, "\\'");
+
+            if (count > 0) {
+                return `
+                    <div class="counter">
+                        <button class="counter-btn" onclick="updateCart('${safeName}', ${item.price}, -1, '${elementId}')">-</button>
+                        <span style="font-weight:700; min-width:20px; text-align:center;">${count}</span>
+                        <button class="counter-btn" onclick="updateCart('${safeName}', ${item.price}, 1, '${elementId}')">+</button>
+                    </div>`;
+            } else {
+                return `<button class="btn-add" onclick="updateCart('${safeName}', ${item.price}, 1, '${elementId}')">Додати</button>`;
+            }
+        }
+
+        function updateCart(name, price, delta, elementId) {
             if (!cart[name]) cart[name] = { name, price, count: 0 };
             cart[name].count += delta;
+            
             if (cart[name].count <= 0) delete cart[name];
+            
+            // Оновлення блоку керування для обраного товару
+            const item = menuData[currentCategory].find(i => i.name === name);
+            if (item) {
+                const ctrlContainer = document.getElementById(`controls-${elementId}`);
+                if (ctrlContainer) ctrlContainer.innerHTML = renderControls(item);
+            }
+            
             updateMainButton();
-            renderMenu(document.querySelector('.category-btn.active').innerText);
         }
 
         function updateMainButton() {
             const btn = document.getElementById('main-btn');
             const total = Object.values(cart).reduce((sum, item) => sum + (item.price * item.count), 0);
             btn.style.display = total > 0 ? 'block' : 'none';
-            btn.innerText = `Оформити — ${total} грн`;
+            btn.innerText = `Замовити — ${total} ₴`;
         }
 
         function sendOrder() {
+            if (Object.keys(cart).length === 0) return;
             tg.sendData(JSON.stringify(Object.values(cart)));
             tg.close();
         }
