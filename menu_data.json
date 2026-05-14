@@ -749,13 +749,5 @@
         "price": 80,
         "description": "апельсиновий сік, сироп солона карамель, подвійне еспресо. Об'єм: 500мл",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
-    },
-    {
-        "id": 4167,
-        "name": "Test2",
-        "price": 234,
-        "category": "Холодні НАПОЇ",
-        "description": "Test 2",
-        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_4167_1778752981.jpg"
     }
 ]
