@@ -765,5 +765,13 @@
         "category": "Холодні НАПОЇ",
         "description": "Test",
         "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_5628_1778752915.jpg"
+    },
+    {
+        "id": 4167,
+        "name": "Test2",
+        "price": 234,
+        "category": "Холодні НАПОЇ",
+        "description": "Test 2",
+        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_4167_1778752981.jpg"
     }
 ]
