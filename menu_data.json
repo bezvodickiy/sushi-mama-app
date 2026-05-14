@@ -751,22 +751,6 @@
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
     },
     {
-        "id": 9399,
-        "name": "Test",
-        "price": 100,
-        "category": "Холодні НАПОЇ",
-        "description": "Test",
-        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_9399_1778752572.jpg"
-    },
-    {
-        "id": 5628,
-        "name": "Test",
-        "price": 123,
-        "category": "Холодні НАПОЇ",
-        "description": "Test",
-        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_5628_1778752915.jpg"
-    },
-    {
         "id": 4167,
         "name": "Test2",
         "price": 234,
