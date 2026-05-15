@@ -561,44 +561,79 @@
     },
     {
         "category": "Холодні НАПОЇ",
+        "name": "Pepsi 0.3л",
+        "price": 30,
+        "description": "Класичний освіжаючий напій. Об'єм: 0.3л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/pepsi.jpg"
+    },
+    {
+        "category": "Холодні НАПОЇ",
+        "name": "Pepsi 1.25л",
+        "price": 55,
+        "description": "Класичний освіжаючий напій. Об'єм: 1.25л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/pepsi.jpg"
+    },
+    {
+        "category": "Холодні НАПОЇ",
+        "name": "Pepsi 1,75л",
+        "price": 65,
+        "description": "Класичний освіжаючий напій. Об'єм: 1.75л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/pepsi.jpg"
+    },
+    {
+        "category": "Холодні НАПОЇ",
         "name": "Coca-Cola 0.5л",
-        "price": 35,
-        "description": "",
+        "price": 30,
+        "description": "Класичний освіжаючий напій. Об'єм: 0.5л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/coca_cola.jpg"
     },
     {
         "category": "Холодні НАПОЇ",
-        "name": "Coca-Cola 1л",
+        "name": "Coca-Cola 1.25л",
         "price": 50,
-        "description": "",
+        "description": "Класичний освіжаючий напій. Об'єм: 1.25л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/coca_cola.jpg"
     },
     {
         "category": "Холодні НАПОЇ",
-        "name": "Fanta 0.5л",
-        "price": 35,
-        "description": "Напій з яскравим смаком апельсина. Об'єм: 0.5л",
+        "name": "Coca-Cola 1.75л",
+        "price": 65,
+        "description": "Класичний освіжаючий напій. Об'єм: 1.75л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/coca_cola.jpg"
+    },
+    {
+        "category": "Холодні НАПОЇ",
+        "name": "Fanta 0.3л",
+        "price": 25,
+        "description": "Напій з яскравим смаком апельсина. Об'єм: 0.3л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fanta.jpg"
     },
     {
         "category": "Холодні НАПОЇ",
-        "name": "Fanta 1л",
-        "price": 50,
-        "description": "Напій з яскравим смаком апельсина. Об'єм: 1л",
+        "name": "Fanta 1.75л",
+        "price": 60,
+        "description": "Напій з яскравим смаком апельсина. Об'єм: 1.75л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fanta.jpg"
     },
     {
         "category": "Холодні НАПОЇ",
         "name": "Sprite 0.5л",
-        "price": 35,
+        "price": 30,
         "description": "Лимонно-лаймовий напій. Об'єм: 0.5л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sprite.jpg"
     },
     {
         "category": "Холодні НАПОЇ",
-        "name": "Sprite 1л",
+        "name": "Sprite 1.25л",
         "price": 50,
-        "description": "Лимонно-лаймовий напій. Об'єм: 1л",
+        "description": "Лимонно-лаймовий напій. Об'єм: 1.25л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sprite.jpg"
+    },
+    {
+        "category": "Холодні НАПОЇ",
+        "name": "Sprite 1.75л",
+        "price": 60,
+        "description": "Лимонно-лаймовий напій. Об'єм: 1.75л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sprite.jpg"
     },
     {
@@ -628,6 +663,20 @@
         "price": 35,
         "description": "Холодний чай з різними смаками. Об'єм: 0.5л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fuze_tea.jpg"
+    },
+    {
+        "category": "Холодні НАПОЇ",
+        "name": "Холодний чай",
+        "price": 50,
+        "description": "Холодний чай з різними смаками. Об'єм: 1л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fuze_tea.jpg"
+    },
+    {
+        "category": "Холодні НАПОЇ",
+        "name": "Schweppes 1л",
+        "price": 55,
+        "description": "Класичний освіжаючий напій. Об'єм: 1л",
+        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/schwepps.jpg"
     },
     {
         "category": "НАПОЇ",
