@@ -691,13 +691,6 @@
     },
     {
         "category": "НАПОЇ",
-        "name": "Іспанський крем",
-        "price": 0,
-        "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg",
-        "description": ""
-    },
-    {
-        "category": "НАПОЇ",
         "name": "Іспанський крем XL",
         "price": 35,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cofee.jpg"
