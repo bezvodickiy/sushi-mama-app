@@ -749,5 +749,13 @@
         "price": 80,
         "description": "апельсиновий сік, сироп солона карамель, подвійне еспресо. Об'єм: 500мл",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
+    },
+    {
+        "id": 8507,
+        "name": "Dhjd",
+        "price": 123,
+        "category": "ЗАПЕЧЕНІ РОЛИ",
+        "description": "Fhshs",
+        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_8507_1778835527.jpg"
     }
 ]
