@@ -660,15 +660,15 @@
     {
         "category": "Холодні НАПОЇ",
         "name": "Холодний чай",
-        "price": 35,
-        "description": "Холодний чай з різними смаками. Об'єм: 0.5л",
+        "price": 30,
+        "description": "",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fuze_tea.jpg"
     },
     {
         "category": "Холодні НАПОЇ",
         "name": "Холодний чай",
-        "price": 50,
-        "description": "Холодний чай з різними смаками. Об'єм: 1л",
+        "price": 30,
+        "description": "",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fuze_tea.jpg"
     },
     {
