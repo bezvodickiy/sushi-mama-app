@@ -749,13 +749,5 @@
         "price": 80,
         "description": "апельсиновий сік, сироп солона карамель, подвійне еспресо. Об'єм: 500мл",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
-    },
-    {
-        "id": 5441,
-        "name": "Соус",
-        "price": 15,
-        "category": "ФАСТ ФУД",
-        "description": "Кетчуп, сирний, кисло-солодкий.",
-        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_5441_1778836816.jpg"
     }
 ]
