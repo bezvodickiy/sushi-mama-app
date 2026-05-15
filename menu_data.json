@@ -2,8 +2,8 @@
     {
         "category": "РОЛИ",
         "name": "Золотий Дракон",
-        "description": "Норі, рис, сир, огірок, лосось, ікра, вугор. Вага: 270г",
-        "price": 340,
+        "description": "Норі, рис, сир, огірок, лосось, ікра, вугор. Вага 270грам",
+        "price": 310,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/zoloti_dragon.jpg"
     },
     {
