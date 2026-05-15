@@ -611,7 +611,7 @@
     {
         "category": "Холодні НАПОЇ",
         "name": "Fanta 1.75л",
-        "price": 60,
+        "price": 65,
         "description": "Напій з яскравим смаком апельсина. Об'єм: 1.75л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fanta.jpg"
     },
@@ -632,7 +632,7 @@
     {
         "category": "Холодні НАПОЇ",
         "name": "Sprite 1.75л",
-        "price": 60,
+        "price": 65,
         "description": "Лимонно-лаймовий напій. Об'єм: 1.75л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/sprite.jpg"
     },
@@ -661,14 +661,14 @@
         "category": "Холодні НАПОЇ",
         "name": "Холодний чай",
         "price": 30,
-        "description": "",
+        "description": "об'єм: 0.5л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fuze_tea.jpg"
     },
     {
         "category": "Холодні НАПОЇ",
         "name": "Холодний чай",
-        "price": 30,
-        "description": "",
+        "price": 50,
+        "description": "об'єм: 1л",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/fuze_tea.jpg"
     },
     {
