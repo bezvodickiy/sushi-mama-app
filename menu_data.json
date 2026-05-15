@@ -749,5 +749,13 @@
         "price": 80,
         "description": "апельсиновий сік, сироп солона карамель, подвійне еспресо. Об'єм: 500мл",
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/drinks/cocteil.jpg"
+    },
+    {
+        "id": 1177,
+        "name": "Лате лате",
+        "price": 44,
+        "category": "НАПОЇ",
+        "description": "",
+        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_1177_1778831713.jpg"
     }
 ]
