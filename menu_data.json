@@ -806,5 +806,13 @@
         "category": "ФАСТ ФУД",
         "description": "Кетчуп, Сирний, Кисло-солодкий.",
         "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_3123_1778837038.jpg"
+    },
+    {
+        "id": 5840,
+        "name": "ХОТ-ДОГ",
+        "price": 60,
+        "category": "ФАСТ ФУД",
+        "description": "Булка французька ковбаска на вибір:\n- молочна;\n- копчена.\nМайонез, кетчуп, гірчиця по бажанню.",
+        "image": "https://raw.githubusercontent.com/bezvodickiy/sushi-mama-app/main/web/img/item_5840_1792325466.jpg"
     }
 ]
