@@ -16,8 +16,8 @@
     {
         "category": "РОЛИ",
         "name": "Червоний Дракон",
-        "description": "Норі, рис, сир, огірок, лосось, ікра, вугор. Вага: 270г",
-        "price": 255,
+        "description": "Сир, огірок, лосось, вугор, ікра\nВага 270грам",
+        "price": 280,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/red_dragon.jpg"
     },
     {
