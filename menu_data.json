@@ -170,8 +170,8 @@
     {
         "category": "РОЛИ",
         "name": "Макі Краб",
-        "description": "Норі, рис, краб, огірок. Вага: 185г",
-        "price": 90,
+        "description": "Рис, огірок, краб\n\nВага 185 грам",
+        "price": 100,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/maki_krab.jpg"
     },
     {
