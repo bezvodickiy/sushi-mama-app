@@ -30,8 +30,8 @@
     {
         "category": "РОЛИ",
         "name": "Філадельфія з лососем",
-        "description": "Норі, рис, сир, огірок, лосось. Вага: 290г",
-        "price": 210,
+        "description": "Рис, сир, огірок, лосось\nВага 280грам",
+        "price": 230,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/fila_losos.jpg"
     },
     {
