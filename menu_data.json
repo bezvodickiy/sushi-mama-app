@@ -191,8 +191,8 @@
     {
         "category": "РОЛИ",
         "name": "Унагі Макі",
-        "description": "Норі, рис, сир, вугор, огірок, кунжут, унагі соус. Вага: 215г",
-        "price": 200,
+        "description": "Рис, вугор, сир, огірок, кунжут, унагі соус\n\nВага 215 грам",
+        "price": 220,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/unagi_maki.jpg"
     },
     {
