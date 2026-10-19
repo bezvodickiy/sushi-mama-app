@@ -121,8 +121,8 @@
     {
         "category": "РОЛИ",
         "name": "Фудзі Лосось",
-        "description": "Норі, рис, сир, огірок, лосось, унагі соус. Вага: 265г",
-        "price": 190,
+        "description": "Рис, сир вершковий, лосось, унагі соус\n\nВага 265грам",
+        "price": 210,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/fudzi_losos.jpg"
     },
     {
