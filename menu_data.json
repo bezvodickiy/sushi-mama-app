@@ -226,8 +226,8 @@
     {
         "category": "РОЛИ",
         "name": "Футомакі Лосось",
-        "description": "Норі, рис, сир, авокадо, огірок, лосось. Вага: 240г",
-        "price": 195,
+        "description": "Рис, сир, огірок, лосось, авокадо\n\nВага 240 грам",
+        "price": 215,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/futomaki_losos.jpg"
     },
     {
