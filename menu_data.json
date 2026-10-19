@@ -44,8 +44,8 @@
     {
         "category": "РОЛИ",
         "name": "Філадельфія з креветкою",
-        "description": "Норі, рис, сир, огірок, лосось, креветка. Вага: 290г",
-        "price": 270,
+        "description": "Рис, сир, огірок, лосось, креветка\nВага 290 грам",
+        "price": 295,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/fila_krev.jpg"
     },
     {
