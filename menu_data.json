@@ -128,8 +128,8 @@
     {
         "category": "РОЛИ",
         "name": "Італійський рол з креветкою",
-        "description": "Норі, рис, сир, огірок, креветка, сир тостовий. Вага: 270г",
-        "price": 225,
+        "description": "Рис, сир вершковий, огірок, креветка, сир тостовий\n\nВага 270 грам",
+        "price": 250,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/italiy_z_krevetkoy.jpg"
     },
     {
