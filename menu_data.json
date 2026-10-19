@@ -72,8 +72,8 @@
     {
         "category": "РОЛИ",
         "name": "Філадельфія Чилі",
-        "description": "Норі, рис, крем-сир, огірок, лосось, соус спайсі, ікра, нитки перцю. Вага: 280г",
-        "price": 260,
+        "description": "Рис, сир, огірок, лосось, соус спайсі, ікра летючої риби, нитка перцю\n\nВага 280грам",
+        "price": 285,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/fila_chili.jpg"
     },
     {
