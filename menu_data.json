@@ -100,8 +100,8 @@
     {
         "category": "РОЛИ",
         "name": "Боніто Тунець",
-        "description": "Норі, рис, сир, огірок, тунець, ікра, стружка тунця. Вага: 225г",
-        "price": 195,
+        "description": "Рис, сир вершковий, огірок, тунець, ікра летючої риби, стружка тунця\n\nВага 225 грам",
+        "price": 215,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/bonito_tuna.jpg"
     },
     {
