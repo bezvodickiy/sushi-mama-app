@@ -93,8 +93,8 @@
     {
         "category": "РОЛИ",
         "name": "Боніто Вугор",
-        "description": "Норі, рис, сир, огірок, вугор, ікра, стружка тунця. Вага: 225г",
-        "price": 210,
+        "description": "Рис, сир вершковий, огірок, вугор, ікра летючої риби, стружка тунця\n\nВага 225 грам",
+        "price": 230,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/bonito_vugor.jpg"
     },
     {
