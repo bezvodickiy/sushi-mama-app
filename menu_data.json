@@ -135,8 +135,8 @@
     {
         "category": "РОЛИ",
         "name": "Італійський рол",
-        "description": "Норі, рис, сир, огірок, лосось, сир тостовий. Вага: 270г",
-        "price": 175,
+        "description": "Рис, сир вершковий, огірок, лосось, сир тостовий\n\nВага 270 грам",
+        "price": 190,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/italiy.jpg"
     },
     {
