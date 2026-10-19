@@ -268,8 +268,8 @@
     {
         "category": "РОЛИ",
         "name": "Ікура Краб",
-        "description": "Норі, рис, сир, огірок, краб мікс, ікра. Вага: 230г",
-        "price": 160,
+        "description": "Рис , сир, огірок, краб мікс\n\nВага 230 грам",
+        "price": 175,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/ikura_krab.jpg"
     },
     {
