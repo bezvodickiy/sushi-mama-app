@@ -163,8 +163,8 @@
     {
         "category": "РОЛИ",
         "name": "Макі Огірок",
-        "description": "Норі, рис, огірок. Вага: 165г",
-        "price": 55,
+        "description": "Рис, огірок\n\nВага 165 грам",
+        "price": 60,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/maki_ogirok.jpg"
     },
     {
