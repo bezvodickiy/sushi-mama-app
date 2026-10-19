@@ -9,8 +9,8 @@
     {
         "category": "РОЛИ",
         "name": "Зелений Дракон",
-        "description": "Норі, рис, сир, огірок, авокадо, ікра, вугор. Вага: 250г",
-        "price": 220,
+        "description": "Сир, огірок, авокадо, ікра, вугор\nВага 250грам",
+        "price": 240,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/zeleni_dragon.jpg"
     },
     {
