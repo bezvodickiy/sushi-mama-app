@@ -198,8 +198,8 @@
     {
         "category": "РОЛИ",
         "name": "Канада Де Люкс",
-        "description": "Норі, рис, сир, авокадо, лосось, тостовий сир, кунжут. Вага: 240г",
-        "price": 195,
+        "description": "Рис, сир, авокадо, лосось, тостовий сир, кунжут\n\nВага 240грам",
+        "price": 210,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kanada_deluxe.jpg"
     },
     {
