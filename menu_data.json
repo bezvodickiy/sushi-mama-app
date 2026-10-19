@@ -261,8 +261,8 @@
     {
         "category": "РОЛИ",
         "name": "Каліфорнія Креветка",
-        "description": "Норі, рис, сир, авокадо, огірок, креветка, ікра. Вага: 255г",
-        "price": 245,
+        "description": "Сир, рис, авокадо, огірок, креветка, ікра \n\nВага 255 грам",
+        "price": 240,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kalifornia_krevetka.jpg"
     },
     {
