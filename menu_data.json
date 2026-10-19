@@ -37,8 +37,8 @@
     {
         "category": "РОЛИ",
         "name": "Філадельфія з вугрем",
-        "description": "Норі, рис, сир, огірок, вугор, соус унагі, кунжут. Вага: 290г",
-        "price": 255,
+        "description": "Рис, сир, огірок, вугор, соус унагі, кунжут\nВага 290грам",
+        "price": 280,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/fila_vugor.jpg"
     },
     {
