@@ -177,8 +177,8 @@
     {
         "category": "РОЛИ",
         "name": "Макі Сир",
-        "description": "Норі, рис, сир, огірок. Вага: 180г",
-        "price": 90,
+        "description": "Рис, огірок, сир\n\nВага 180 грам",
+        "price": 100,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/maki_sur.jpg"
     },
     {
