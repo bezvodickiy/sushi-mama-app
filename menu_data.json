@@ -184,8 +184,8 @@
     {
         "category": "РОЛИ",
         "name": "Макі Креветка",
-        "description": "Норі, рис, сир, креветка. Вага: 190г",
-        "price": 135,
+        "description": "Рис, креветка, сир\n\nВага 180 грам",
+        "price": 145,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/maki_krevetka.jpg"
     },
     {
