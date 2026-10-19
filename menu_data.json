@@ -142,8 +142,8 @@
     {
         "category": "РОЛИ",
         "name": "Сакура",
-        "description": "Норі, рис, сир, огірок, лосось, кунжут. Вага: 220г",
-        "price": 155,
+        "description": "Рис, сир вершковий, огірок, лосось, кунжут\n\nВага 220 грам",
+        "price": 170,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/sakura.jpg"
     },
     {
