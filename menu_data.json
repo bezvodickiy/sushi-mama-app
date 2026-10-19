@@ -205,8 +205,8 @@
     {
         "category": "РОЛИ",
         "name": "Канада в ікрі летючої риби",
-        "description": "Норі, рис, сир, авокадо, лосось, ікра. Вага: 240г",
-        "price": 225,
+        "description": "Рис, сир, авокадо, лосось, ікра\n\nВага 240грам",
+        "price": 245,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kanada_v_ikri_let_rubu.jpg"
     },
     {
