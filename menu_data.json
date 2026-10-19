@@ -114,8 +114,8 @@
     {
         "category": "РОЛИ",
         "name": "Фудзі Вугор",
-        "description": "Норі, рис, сир, огірок, вугор, унагі соус. Вага: 265г",
-        "price": 225,
+        "description": "Рис, сир вершковий, вугор, унагі соус\n\nВага 265грам",
+        "price": 250,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/fudzi_vugor.jpg"
     },
     {
