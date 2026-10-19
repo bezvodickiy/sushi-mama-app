@@ -212,8 +212,8 @@
     {
         "category": "РОЛИ",
         "name": "Футомакі Спайсі",
-        "description": "Норі, рис, соус спайсі, огірок, лосось. Вага: 200г",
-        "price": 160,
+        "description": "Рис, соус спайсі, огірок, лосось\nВага 200 грам",
+        "price": 175,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/futomaki_spaisy.jpg"
     },
     {
