@@ -107,8 +107,8 @@
     {
         "category": "РОЛИ",
         "name": "Фудзі з креветкою",
-        "description": "Норі, рис, сир, огірок, креветка, унагі соус. Вага: 265г",
-        "price": 240,
+        "description": "Рис, сир вершковий, креветка, унагі соус\n\nВага 265грам",
+        "price": 265,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/fudzi_krevetka.jpg"
     },
     {
