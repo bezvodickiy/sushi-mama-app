@@ -247,8 +247,8 @@
     {
         "category": "РОЛИ",
         "name": "Каліфорнія Лосось",
-        "description": "Норі, рис, сир, огірок, лосось, кунжут білий. Вага: 225г",
-        "price": 195,
+        "description": "Рис, сир, огірок, лосось, кунжут білий \n\nВага 225 грам",
+        "price": 215,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kalifornia_losos.jpg"
     },
     {
