@@ -23,8 +23,8 @@
     {
         "category": "РОЛИ",
         "name": "Чорний Дракон",
-        "description": "Норі, чорний рис, сир, огірок, креветка, ікра, вугор. Вага: 290г",
-        "price": 320,
+        "description": "Сир, чорний рис, огірок, креветка, ікра, вугор\nВага 290 грам",
+        "price": 350,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/black_dragon.jpg"
     },
     {
