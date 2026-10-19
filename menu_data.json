@@ -149,8 +149,8 @@
     {
         "category": "РОЛИ",
         "name": "Макі Лосось",
-        "description": "Норі, рис, лосось. Вага: 165г",
-        "price": 125,
+        "description": "Рис, лосось \n\nВага 165 грам",
+        "price": 135,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/maki_losos.jpg"
     },
     {
