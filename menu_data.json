@@ -233,8 +233,8 @@
     {
         "category": "РОЛИ",
         "name": "Каліфорнія Краб",
-        "description": "Норі, рис, сир, огірок, краб мікс, кунжут чорний і білий. Вага: 210г",
-        "price": 105,
+        "description": "Рис, сир, огірок, краб мікс, кунжут чорний і білий\n\nВага 210 грам",
+        "price": 115,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kalifornia_krab.jpg"
     },
     {
