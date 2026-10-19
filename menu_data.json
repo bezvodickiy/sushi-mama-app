@@ -254,8 +254,8 @@
     {
         "category": "РОЛИ",
         "name": "Каліфорнія Тунець",
-        "description": "Норі, рис, сир, авокадо, огірок, тунець, ікра. Вага: 240г",
-        "price": 230,
+        "description": "Рис, сир, огірок, тунець, авокадо, ікра летючої риби\n\nВага 240 грам",
+        "price": 255,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/kalifornia_tuna.jpg"
     },
     {
