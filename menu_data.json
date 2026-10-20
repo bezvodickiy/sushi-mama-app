@@ -289,8 +289,8 @@
     {
         "category": "РОЛИ",
         "name": "Ікура Тунець",
-        "description": "Норі, рис, сир, авокадо, тунець, ікра. Вага: 230г",
-        "price": 240,
+        "description": "Рис, сир, авокадо, тунець, ікра летючої риби\n\nВага 230грам",
+        "price": 265,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/ikura_tuna.jpg"
     },
     {
