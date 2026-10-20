@@ -303,8 +303,8 @@
     {
         "category": "РОЛИ",
         "name": "YELLOW РОЛ",
-        "description": "Креветка, вугор, крем-сир, рис, авокадо, ікра летючої риби. Вага: 270г",
-        "price": 300,
+        "description": "Креветка, вугор, крем сир, рис, авокадо, ікра летючої риби\nВага 270 грам",
+        "price": 325,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/yelov_roll.jpg"
     },
     {
