@@ -310,8 +310,8 @@
     {
         "category": "РОЛИ",
         "name": "BLUE РОЛ",
-        "description": "Креветка, тунець, крем-сир, авокадо, ікра летючої риби, рис, стружка тунця. Вага: 280г",
-        "price": 280,
+        "description": "Креветка, тунець, крем сир, рис, авокадо, стружка тунця\nВага 280 грам",
+        "price": 305,
         "image": "https://bezvodickiy.github.io/sushi-mama-app/img/rolls/blue_roll.jpg"
     },
     {
